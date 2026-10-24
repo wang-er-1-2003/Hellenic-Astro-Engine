@@ -1,0 +1,343 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- Copyright (C) 2026 wang-er-1-2003 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>星盘引擎子件</title>
+<style>
+  :root { --fg:#1a1a1a; --muted:#666; --line:#ddd; --accent:#2c5f8a; }
+  * { box-sizing: border-box; }
+  html, body { height:100%; }
+  body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; color:var(--fg); margin:0; background:#eef0f3; display:flex; flex-direction:column; }
+  header { background:#fff; border-bottom:1px solid var(--line); padding:10px 18px; display:flex; align-items:baseline; gap:12px; }
+  header h1 { font-size:16px; margin:0; }
+  header .sub { color:var(--muted); font-size:12px; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; background:#e8f0f8; color:var(--accent); }
+
+  .layout { display:flex; flex:1; min-height:0; }
+  /* ---- 左栏：星盘 ---- */
+  .left { flex:1; min-width:0; display:flex; flex-direction:column; padding:12px 14px; gap:10px; }
+  #type-tabs { display:flex; gap:6px; flex-wrap:wrap; }
+  .type-tab { background:#fff; border:1px solid var(--line); border-radius:16px; padding:6px 16px; font-size:13px; cursor:pointer; color:var(--muted); }
+  .type-tab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+  #chart-box { flex:1; min-height:0; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid var(--line); border-radius:8px; padding:8px; overflow:auto; }
+  #chart-info { font-size:12px; color:var(--muted); text-align:center; }
+
+  /* ---- 右栏：可折叠列 ---- */
+  .right { width:430px; flex-shrink:0; overflow-y:auto; padding:12px 14px; background:#e4e7eb; border-left:1px solid var(--line); }
+  details { background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:10px; }
+  details > summary { cursor:pointer; padding:10px 14px; font-size:13px; font-weight:600; background:#f7f9fb; list-style:none; display:flex; justify-content:space-between; align-items:center; user-select:none; }
+  details > summary::-webkit-details-marker { display:none; }
+  details > summary::after { content:"▸"; color:var(--muted); font-size:12px; }
+  details[open] > summary::after { content:"▾"; }
+  details .body { padding:12px 14px; max-height:calc(100vh - 250px); overflow-y:auto; }
+  .row { display:flex; gap:8px; margin-bottom:8px; }
+  .field { flex:1; min-width:0; }
+  .field label { display:block; font-size:11px; color:var(--muted); margin-bottom:3px; }
+  .field input, .field select { width:100%; padding:5px 7px; border:1px solid var(--line); border-radius:4px; font-size:13px; }
+  .field .hint { font-size:10px; color:#999; margin-top:2px; }
+  button { background:var(--accent); color:#fff; border:0; border-radius:4px; padding:8px 20px; font-size:13px; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:wait; }
+  table { border-collapse:collapse; width:100%; font-size:12px; }
+  th, td { border:1px solid var(--line); padding:4px 6px; text-align:left; }
+  th { background:#f0f2f5; font-weight:600; }
+  .gl { font-size:15px; text-align:center; }
+  .r { color:#b00; font-weight:700; }
+  .asp { text-align:center; }
+  pre { background:#f8f9fa; border:1px solid var(--line); border-radius:6px; padding:10px; font-size:11px; overflow:auto; max-height:420px; margin:0; }
+  .err { color:#b00; padding:20px; text-align:center; }
+  .muted { color:var(--muted); }
+  .radio-group { font-size:12px; }
+  .radio-group label { margin-right:10px; }
+  #domain-tabs { display:flex; gap:4px; flex-wrap:wrap; margin:8px 0 10px; }
+  .domain-tab { background:#fff; border:1px solid var(--line); border-radius:14px; padding:4px 12px; font-size:12px; cursor:pointer; color:var(--muted); }
+  .domain-tab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .horary-input { margin-bottom:8px; }
+  .horary-input label { font-size:12px; color:var(--muted); margin-right:6px; }
+  .horary-input select { font-size:12px; padding:3px 6px; border:1px solid var(--line); border-radius:4px; margin-right:8px; }
+  .horary-input .hint { font-size:11px; color:var(--muted); margin-top:6px; }
+  #out-horary .verdict-card { border:1px solid var(--line); border-radius:8px; padding:10px; margin-bottom:8px; }
+  .verdict-card .v-main { font-size:16px; font-weight:700; margin-bottom:4px; }
+  .verdict-card .v-score { font-size:12px; color:var(--muted); }
+  .verdict-card .v-time { font-size:12px; margin:6px 0; }
+  .verdict-card .v-special { font-size:12px; line-height:1.6; margin-bottom:6px; }
+  .verdict-card .v-special b { color:var(--accent); }
+  .verdict-card .v-factors { border-top:1px dashed #ddd; padding-top:6px; }
+  .v-fact { font-size:11px; line-height:1.5; color:#444; }
+  .v-fact .w { font-family:Consolas,monospace; font-size:10px; margin-right:6px; color:var(--accent); }
+  .v-fact .src { color:#999; font-size:10px; }
+  .cond-tag { font-size:10px; color:#8a6d3b; background:#fcf8e3; border:1px solid #faebcc; border-radius:3px; padding:1px 4px; white-space:nowrap; }
+  .rules-meta { font-size:11px; color:var(--muted); margin-bottom:6px; }
+  button.mini { background:#fff; color:var(--accent); border:1px solid var(--line); border-radius:4px; padding:3px 10px; font-size:11px; cursor:pointer; margin-bottom:8px; }
+  details.rule-block { border:1px solid var(--line); border-radius:6px; margin-bottom:6px; }
+  details.rule-block > summary { background:#f7f9fb; padding:6px 10px; font-size:12px; font-weight:600; }
+  details.rule-block > summary::after { display:none; }
+  .rule-body { padding:6px 10px; max-height:60vh; overflow-y:auto; }
+  .profile { background:#faf6ec; border:1px solid #efe6d2; border-radius:4px; padding:5px 8px; margin-bottom:6px; }
+  .prow { font-size:11px; color:#5a4a28; line-height:1.5; }
+  .rule-hit { border-bottom:1px dashed #eee; padding:5px 0; }
+  .rule-hit:last-child { border-bottom:0; }
+  .rid { font-family:Consolas,monospace; font-size:10px; color:var(--accent); background:#eef4fb; border-radius:3px; padding:1px 4px; }
+  .via { font-size:10px; color:#888; margin-left:6px; }
+  .rt { font-size:12px; margin:3px 0; line-height:1.5; }
+  .cond { font-size:10px; color:#a0692c; }
+  .src { font-size:10px; color:#999; }
+</style>
+</head>
+<body>
+<header>
+  <h1>星盘引擎子件 <span class="badge">Swiss Ephemeris wasm</span></h1>
+  <span class="sub">左：星盘图（可切换盘型） · 右：输入 / 输出</span>
+</header>
+
+<div class="layout">
+  <!-- ==================== 左栏：星盘 ==================== -->
+  <section class="left">
+    <div id="type-tabs"></div>
+    <div id="domain-tabs">
+      <button class="domain-tab active" data-domain="all">全部</button>
+      <button class="domain-tab" data-domain="natal">本命解读</button>
+      <button class="domain-tab" data-domain="predictive">推运应期</button>
+      <button class="domain-tab" data-domain="horary">卜卦问答</button>
+      <button class="domain-tab" data-domain="electional">择时</button>
+      <button class="domain-tab" data-domain="synastry">合盘</button>
+      <button class="domain-tab" data-domain="mundane">世俗</button>
+    </div>
+    <div id="chart-box"><div class="muted">计算中…</div></div>
+    <div id="chart-info"></div>
+  </section>
+
+  <!-- ==================== 右栏：可折叠列 ==================== -->
+  <aside class="right">
+    <details id="col-input" open>
+      <summary>输入</summary>
+      <div class="body">
+        <div class="row">
+          <div class="field"><label>年</label><input id="in-year" type="number" value="1990"></div>
+          <div class="field"><label>月</label><input id="in-month" type="number" value="6"></div>
+          <div class="field"><label>日</label><input id="in-day" type="number" value="15"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>时</label><input id="in-hour" type="number" value="12"></div>
+          <div class="field"><label>分</label><input id="in-minute" type="number" value="0"></div>
+          <div class="field"><label>时区(UTC+)</label><input id="in-tz" type="number" value="8"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>纬度</label><input id="in-lat" type="number" step="0.0001" value="39.9042"></div>
+          <div class="field"><label>经度</label><input id="in-lon" type="number" step="0.0001" value="116.4074"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>分宫制</label>
+            <select id="in-house">
+              <option value="P" selected>P 普拉西德(Placidus)</option>
+              <option value="O">O 波菲利(Porphyry)</option>
+              <option value="W">W 整宫(Whole Sign)</option>
+              <option value="A">A 等宫(Ascendant)</option>
+              <option value="E">E 等宫(Equal)</option>
+              <option value="K">K 科赫(Koch)</option>
+              <option value="C">C 坎帕努斯(Campanus)</option>
+              <option value="R">R 雷格蒙塔努斯(Regiomontanus)</option>
+              <option value="T">T 波利奇(Polich/Page)</option>
+            </select>
+          </div>
+          <div class="field"><label>容许度</label>
+            <select id="in-orb">
+              <option value="modern" selected>现代</option>
+              <option value="lilly">古典(Lilly)</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field"><label>黄道</label>
+            <select id="in-zodiac">
+              <option value="tropical" selected>热带（回归）</option>
+              <option value="sidereal">恒星（岁差/Lahiri）</option>
+            </select>
+          </div>
+        </div>
+        <div id="param-years-wrap" style="display:none">
+          <div class="row">
+            <div class="field"><label>推运年龄(岁)</label><input id="in-years" type="number" value="30" step="0.5"></div>
+          </div>
+        </div>
+        <div id="param-tx-wrap" style="display:none">
+          <div class="radio-group">
+            <label><input type="radio" name="tx-mode" value="now" checked> 当前时刻</label>
+            <label><input type="radio" name="tx-mode" value="manual"> 指定时刻</label>
+          </div>
+          <div id="tx-fields">
+            <div class="row" style="margin-top:6px">
+              <div class="field"><label>年</label><input id="tx-year" type="number" value="2026"></div>
+              <div class="field"><label>月</label><input id="tx-month" type="number" value="10"></div>
+              <div class="field"><label>日</label><input id="tx-day" type="number" value="17"></div>
+            </div>
+            <div class="row">
+              <div class="field"><label>时</label><input id="tx-hour" type="number" value="12"></div>
+              <div class="field"><label>分</label><input id="tx-minute" type="number" value="0"></div>
+              <div class="field"><label>时区(UTC+)</label><input id="tx-tz" type="number" value="8"></div>
+            </div>
+          </div>
+        </div>
+        <div id="param-dav-wrap" style="display:none">
+          <div class="row">
+            <div class="field"><label>B盘年</label><input id="dav-year" type="number" value="2000"></div>
+            <div class="field"><label>月</label><input id="dav-month" type="number" value="1"></div>
+            <div class="field"><label>日</label><input id="dav-day" type="number" value="1"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label>时</label><input id="dav-hour" type="number" value="12"></div>
+            <div class="field"><label>分</label><input id="dav-minute" type="number" value="0"></div>
+            <div class="field"><label>时区(UTC+)</label><input id="dav-tz" type="number" value="8"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label>纬度</label><input id="dav-lat" type="number" value="39.9042"></div>
+            <div class="field"><label>经度</label><input id="dav-lon" type="number" value="116.4074"></div>
+          </div>
+          <div class="src">B 盘出生信息：与左侧 A 盘取 UTC 中点 + 地理中点，排组合盘（Davison 中点盘）。默认北京 2000-01-01 12:00，可改。</div>
+        </div>
+        <button id="btn-compute">计算</button>
+      </div>
+    </details>
+
+    <details id="col-angles">
+      <summary>四轴（输出）</summary>
+      <div class="body"><table><thead><tr><th>轴</th><th>位置</th></tr></thead><tbody id="out-angles"></tbody></table></div>
+    </details>
+
+    <details id="col-planets">
+      <summary>行星（输出）</summary>
+      <div class="body"><table><thead><tr><th></th><th>星</th><th>黄道位置</th><th>宫</th><th>速度</th><th>逆行</th><th>本然</th><th>偶然</th><th>综合</th><th>状态</th></tr></thead><tbody id="out-planets"></tbody></table></div>
+    </details>
+
+    <details id="col-houses">
+      <summary>宫位（输出）</summary>
+      <div class="body"><table><thead><tr><th>宫</th><th>宫头</th></tr></thead><tbody id="out-houses"></tbody></table></div>
+    </details>
+
+    <details id="col-aspects">
+      <summary>相位（输出）</summary>
+      <div class="body"><table><thead><tr><th>行星A</th><th>相位</th><th>行星B</th><th>容许度</th><th>入/离</th></tr></thead><tbody id="out-aspects"></tbody></table></div>
+    </details>
+
+    <details id="col-rules" open>
+      <summary>规则解读（第4层 · 47卷）</summary>
+      <div class="body" id="out-rules"></div>
+    </details>
+
+    <details id="col-horary">
+      <summary>卜卦问答（结果目的 · Horary）</summary>
+      <div class="body">
+        <div class="horary-input">
+          <label>问题类型</label>
+          <select id="horary-type">
+            <option value="盗窃失物">盗窃 / 失物</option>
+            <option value="买卖">买卖 / 生意</option>
+            <option value="婚姻">婚姻 / 感情</option>
+            <option value="诉讼">诉讼 / 官司</option>
+            <option value="被控">被控 / 被捕（四判）</option>
+            <option value="航海">航海 / 出行（问判）</option>
+            <option value="得位">得位 / 谋职（问判）</option>
+            <option value="去职">去职 / 职位安危（问判）</option>
+            <option value="囚释">囚释 / 获释（问判）</option>
+            <option value="获所求">获所求 / 能否得偿（问判）</option>
+            <option value="妆奁">妆奁 / 嫁妆厚薄（问判）</option>
+            <option value="暗敌">暗敌 / 有无私敌（问判）</option>
+            <option value="友真伪">友真伪 / 友是否可信（问判）</option>
+            <option value="赛马">赛马 / 胜负名次（问判）</option>
+            <option value="死之种类">死之种类 / 自然或暴死（问判）</option>
+            <option value="蛊">蛊 / 是否被蛊（问判）</option>
+            <option value="隐疾">隐疾 / 病是否超自然（问判）</option>
+            <option value="进财时机">进财时机 / 何时得财（问判）</option>
+            <option value="流言真伪">流言真伪 / 传闻是否属实（问判）</option>
+            <option value="公敌讼战">公敌讼战 / 能否胜讼战（问判）</option>
+            <option value="藏失物">藏失物 / 物是否在屋（问判）</option>
+            <option value="长寿">长寿 / 寿数长短（问判）</option>
+            <option value="缺席者死活">缺席者死活 / 远人存亡（问判）</option>
+            <option value="突发事吉凶">突发事吉凶 / 事之吉凶（问判）</option>
+            <option value="讨债">讨债 / 能否收回（问判）</option>
+            <option value="逃犯">逃犯 / 逃者行踪（问判）</option>
+            <option value="失物盗贼">失物盗贼 / 盗征与追回（问判）</option>
+            <option value="合伙">合伙 / 能否相合（问判）</option>
+            <option value="夫妻寿序">夫妻寿序 / 孰先逝（问判）</option>
+            <option value="胎记">胎记 / 身体印记（问判）</option>
+            <option value="藏宝">藏宝 / 有无宝藏（问判）</option>
+            <option value="攻城">攻城 / 坚城能否下（问判）</option>
+            <option value="致富">致富 / 能否致富有财（问判）</option>
+            <option value="致富之法">致富之法 / 以何成富（问判）</option>
+            <option value="人在家否">人在家否 / 寻人是否在家（问判）</option>
+            <option value="子女">子女 / 有无子嗣（问判）</option>
+            <option value="怀孕">怀孕 / 是否受孕（问判）</option>
+            <option value="病者">病者 / 病位与生死（问判）</option>
+            <option value="婚否">婚否 / 能否成婚（问判）</option>
+            <option value="产业持久">产业持久 / 家产能守否（问判）</option>
+            <option value="购房地">购房地 / 置产能否成（问判）</option>
+            <option value="搬迁">搬迁 / 宜迁宜留（问判）</option>
+            <option value="信使">信使 / 遣使之成败（问判）</option>
+            <option value="赌运">赌运 / 博弈输赢（问判）</option>
+            <option value="仆役">仆役 / 仆畜之利害（问判）</option>
+            <option value="俸禄">俸禄 / 职俸技艺可求否（问判）</option>
+            <option value="贸易">贸易 / 生意盈亏（问判）</option>
+            <option value="海船">海船 / 行船安危（问判）</option>
+            <option value="亲邻相合">亲邻相合 / 亲邻之和（问判）</option>
+            <option value="内陆旅行">内陆旅行 / 出行吉凶（问判）</option>
+            <option value="朋友建议">朋友建议 / 谏言可从否（问判）</option>
+            <option value="父产">父产 / 能否得父产（问判）</option>
+            <option value="大牲畜">大牲畜 / 畜牧之利（问判）</option>
+            <option value="出行">出行 / 旅行</option>
+            <option value="比赛">比赛 / 竞争</option>
+            <option value="求职">求职 / 职位</option>
+            <option value="一般">一般问事</option>
+          </select>
+          <button class="mini" id="btn-horary">以当前时刻问卦</button>
+          <div class="hint">用左侧输入的日期时间 + 地点排天象盘判卦；盗窃/失物有方位与贼貌专项。</div>
+        </div>
+        <div id="out-horary"></div>
+      </div>
+    </details>
+
+    <details id="col-hours">
+      <summary>行星时（D 域择时 · CE-155）</summary>
+      <div class="body">
+        <div class="horary-input">
+          <button class="mini" id="btn-hours">以当前输入时刻查行星时</button>
+          <div class="hint">昼行星时=日长/12、夜行星时=夜长/12；行星日守护星起按卡尔代亚序（土木火日金水月）轮值（Clavis 择时世俗卷 CHAP XIV）。无择时意图匹配判据原文，仅显示时主星。</div>
+        </div>
+        <div id="out-hours"></div>
+      </div>
+    </details>
+
+    <details id="col-marriage">
+      <summary>婚姻判读（E 域婚卷 · 本命/合婚）</summary>
+      <div class="body">
+        <div class="horary-input">
+          <button class="mini" id="btn-marriage">以当前盘判婚（本命）</button>
+          <button class="mini" id="btn-marriage-partner">加伴侣盘判合婚</button>
+          <div class="hint">婚点/婚时/婚数/伴侣质/婚龄差（TTB-421~429、DOR2、CP3-522 等；判例复现不作现实用途）。</div>
+          <div class="hint">行运应期（DOR2-10）：木星行运至婚点/金星=成婚应期、土星刑冲=冷婚阻碍——输入行运日期：
+            <input class="mini-in" id="mt-year" type="number" placeholder="年" style="width:64px" value="2026">
+            <input class="mini-in" id="mt-month" type="number" placeholder="月" style="width:48px" value="10">
+            <input class="mini-in" id="mt-day" type="number" placeholder="日" style="width:48px" value="20">
+            <input class="mini-in" id="mt-hour" type="number" placeholder="时" style="width:48px" value="12">
+            <button class="mini" id="btn-marriage-timing">行运应期</button></div>
+          <div class="hint">组合推运（Davison 次限）：双盘中点时刻按次限法推 N 年——
+            <input class="mini-in" id="dav-years" type="number" placeholder="年" style="width:64px" value="1">
+            <button class="mini" id="btn-davison-progressed">组合推运盘</button>
+            <button class="mini" id="btn-davison">组合盘（未推）</button>
+            <button class="mini" id="btn-davison-detail">组合盘全明细</button></div>
+        </div>
+        <div id="out-marriage"></div>
+      </div>
+    </details>
+
+    <details id="col-json">
+      <summary>原始 JSON（输出）</summary>
+      <div class="body"><pre id="out-json"></pre></div>
+    </details>
+  </aside>
+</div>
+
+<script src="renderer/chart-view.js"></script>
+<script src="renderer/app.js"></script>
+</body>
+</html>

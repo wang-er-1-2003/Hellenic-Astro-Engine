@@ -1,0 +1,32 @@
+CARD-104: planets=['水星', '月亮', '太阳', '木星', '金星', '土星', '火星'] signs=[] houses=[] aspects=[] type=rule
+Cardano卷: 56 条, planets多标签 23 条, 单标签 33 条
+Lilly行星释义卷: 73 条, 标土星 11 条
+   LIL-SAT-01 type=data conf=high | 土星：昼行星，冷而干；忧郁质、土性、阳性、大凶星（Greater Infortune），主孤寂、恶毒。
+   LIL-SAT-02 type=data conf=high | 土星得时：想象深沉、行事严峻、言语保留、寡言少予、劳作有耐心、论辩庄重、谋财勤勉、诸行俭朴。
+   LIL-SAT-03 type=data conf=high | 土星失时：嫉妒、贪婪、多疑、怯懦、卑琐、外饰、迟钝、固执、贬斥女性、隐秘撒谎、怨怼不止。
+
+规则库-Cardano箴言第一卷.xlsx                                 36/ 56
+规则库-Clavis世俗蚀兆卷.xlsx                                  33/ 34
+规则库-Clavis十二宫问事判例卷.xlsx                               47/ 48
+规则库-Clavis卜卦判例卷.xlsx                                  89/ 91
+规则库-Clavis基础教义卷.xlsx                                   7/ 63
+规则库-Clavis择时世俗卷.xlsx                                  55/ 56
+规则库-Clavis方向法补充卷.xlsx                                147/155
+规则库-Clavis本命方向卷.xlsx                                 350/355
+规则库-Clavis补遗卷.xlsx                                    40/ 40
+规则库-Dariot卜卦总纲.xlsx                                   44/ 44
+规则库-Dorotheus卷一.xlsx                                  28/ 28
+规则库-Dorotheus卷三.xlsx                                  15/ 15
+规则库-Dorotheus卷三注释.xlsx                                15/ 16
+规则库-Dorotheus卷二.xlsx                                  36/ 36
+规则库-Lilly卡丹诺箴言选编.xlsx                                170/197
+规则库-Lilly基础教程卷.xlsx                                   31/ 31
+规则库-Lilly星座释义卷.xlsx                                   56/ 56
+规则库-Lilly相位状态卷.xlsx                                   29/ 29
+规则库-Lilly行星释义卷.xlsx                                   73/ 73
+规则库-Neve卜卦手稿背景档案.xlsx                                  1/ 14
+规则库-Tetrabiblos世俗卷(BookII).xlsx                       32/ 45
+规则库-Tetrabiblos本命卷(BookIII).xlsx                      63/ 75
+规则库-Tetrabiblos本命基础卷(BookI).xlsx                      42/ 71
+规则库-Tetrabiblos财官婚旅卷(BookIV).xlsx                     63/ 67
+规则库-Valens寿命时主卷.xlsx                                   1/ 70

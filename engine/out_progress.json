@@ -1,0 +1,92 @@
+
+{
+  "chart": {
+    "isDay": "night",
+    "asc": 171.67679212259682
+  },
+  "firdaria": {
+    "age": 36,
+    "main": {
+      "planet": "Mars",
+      "zh": "火星",
+      "len": 7,
+      "start": 32,
+      "end": 39
+    },
+    "sub": [
+      {
+        "planet": "Moon",
+        "zh": "月亮",
+        "len": 1,
+        "start": 32,
+        "end": 33
+      },
+      {
+        "planet": "Saturn",
+        "zh": "土星",
+        "len": 1,
+        "start": 33,
+        "end": 34
+      },
+      {
+        "planet": "Jupiter",
+        "zh": "木星",
+        "len": 1,
+        "start": 34,
+        "end": 35
+      },
+      {
+        "planet": "Mars",
+        "zh": "火星",
+        "len": 1,
+        "start": 35,
+        "end": 36
+      },
+      {
+        "planet": "Sun",
+        "zh": "太阳",
+        "len": 1,
+        "start": 36,
+        "end": 37
+      },
+      {
+        "planet": "Venus",
+        "zh": "金星",
+        "len": 1,
+        "start": 37,
+        "end": 38
+      },
+      {
+        "planet": "Mercury",
+        "zh": "水星",
+        "len": 1,
+        "start": 38,
+        "end": 39
+      }
+    ],
+    "activeSub": {
+      "planet": "Sun",
+      "zh": "太阳",
+      "len": 1,
+      "start": 36,
+      "end": 37,
+      "remainingYears": 1
+    },
+    "version": "night_hand"
+  },
+  "profection": {
+    "age": 36,
+    "house": 1,
+    "signIdx": 5,
+    "signZh": "处女",
+    "lordIdx": 2,
+    "lordZh": "水星",
+    "lordGlyph": "☿",
+    "formula": "profected_house = (age mod 12) + 1，其中 age = 最近一个生日时的年龄；从上升星座起数（上升本身=第1宫）",
+    "usage": "观察行运与本命 Lord of Year 的相位触发当年主题；行运经过小限宫亦加重"
+  },
+  "sources": [
+    "firdaria.json（Zoller 教学口径/Hand 替代序，已固定 hand 版）",
+    "profections.json（Valens Anthology IV.11）"
+  ]
+}

@@ -1,0 +1,1286 @@
+
+{
+  "meta": {
+    "type": "natal",
+    "input": {
+      "year": 1990,
+      "month": 6,
+      "day": 15,
+      "hour": 12,
+      "minute": 0,
+      "tzOffsetHours": 8,
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "houseSystem": "P",
+      "orbSet": "modern",
+      "includeMinor": false,
+      "utHour": 4
+    },
+    "natalJd": 2448057.6666666665,
+    "chartJd": 2448057.6666666665,
+    "houseJd": 2448057.6666666665,
+    "isDay": "night",
+    "engine": {
+      "swisseph": "2.10.03",
+      "note": "Swiss Ephemeris wasm 移植"
+    },
+    "prenatalLunation": {
+      "jd": 2448035.9875152293,
+      "lon": 63.04906102311759,
+      "sunLon": 63.04906102311758,
+      "iterations": 4
+    }
+  },
+  "planets": [
+    {
+      "idx": 0,
+      "en": "Sun",
+      "zh": "太阳",
+      "glyph": "☉",
+      "lon": 83.81118253218429,
+      "lat": 0.00010960810943554183,
+      "dist": 1.0157322193224743,
+      "speed": 0.9551361537290181,
+      "retrograde": false,
+      "position": {
+        "signIdx": 2,
+        "signEn": "Gemini",
+        "signZh": "双子",
+        "signGlyph": "♊",
+        "signDeg": 23.816666666666666,
+        "text": "双子 23°49′",
+        "raw": 83.81118253218429
+      },
+      "house": 9,
+      "essential": [
+        {
+          "dignity": "face",
+          "weight": 1,
+          "detail": "面(<30°)"
+        }
+      ],
+      "dignityScore": 1,
+      "termsCompare": {
+        "degInSign": 23.8,
+        "egyptian": {
+          "planet": "土星",
+          "end": 25
+        },
+        "ptolemy": {
+          "planets": [
+            "火星"
+          ],
+          "start": 20,
+          "end": 26
+        },
+        "valens": {
+          "planet": "火星",
+          "start": 17,
+          "end": 24
+        },
+        "match": "val_pt"
+      },
+      "accidental": {
+        "score": 6,
+        "notes": [
+          "宫位 9宫 +2（CE-042）",
+          "顺行 +4（CE-042）",
+          "刑凶星 SD 表无分值条目，未判（实事求是）"
+        ]
+      },
+      "totalScore": 7
+    },
+    {
+      "idx": 1,
+      "en": "Moon",
+      "zh": "月亮",
+      "glyph": "☽",
+      "lon": 340.9236881519621,
+      "lat": 2.8028732423598006,
+      "dist": 0.0025538949504480234,
+      "speed": 13.24510697229297,
+      "retrograde": false,
+      "position": {
+        "signIdx": 11,
+        "signEn": "Pisces",
+        "signZh": "双鱼",
+        "signGlyph": "♓",
+        "signDeg": 10.916666666666666,
+        "text": "双鱼 10°55′",
+        "raw": 340.9236881519621
+      },
+      "house": 5,
+      "essential": [],
+      "dignityScore": 0,
+      "termsCompare": {
+        "degInSign": 10.9,
+        "egyptian": {
+          "planet": "木星",
+          "end": 14
+        },
+        "ptolemy": {
+          "planets": [
+            "木星"
+          ],
+          "start": 8,
+          "end": 14
+        },
+        "valens": {
+          "planet": "金星",
+          "start": 0,
+          "end": 12
+        },
+        "match": "eg_pt"
+      },
+      "accidental": {
+        "score": 3,
+        "notes": [
+          "宫位 5宫 CE 表缺分值，未计",
+          "顺行 +4（CE-042）",
+          "东出(日之后) -2（CE-043 月水金东出为弱）",
+          "离焦(自主)：CE-042 离焦+5 未计——无脱离阈值界定",
+          "疾行 13.25°/d > 均速 13.176（SD-027）+1",
+          "刑凶星 SD 表无分值条目，未判（实事求是）"
+        ]
+      },
+      "totalScore": 3
+    },
+    {
+      "idx": 2,
+      "en": "Mercury",
+      "zh": "水星",
+      "glyph": "☿",
+      "lon": 65.1212695646138,
+      "lat": -1.7224577474070653,
+      "dist": 1.1044238918766893,
+      "speed": 1.7006432685597084,
+      "retrograde": false,
+      "position": {
+        "signIdx": 2,
+        "signEn": "Gemini",
+        "signZh": "双子",
+        "signGlyph": "♊",
+        "signDeg": 5.116666666666666,
+        "text": "双子 5°7′",
+        "raw": 65.1212695646138
+      },
+      "house": 8,
+      "essential": [
+        {
+          "dignity": "domicile",
+          "weight": 5,
+          "detail": "庙"
+        },
+        {
+          "dignity": "exaltation",
+          "weight": 4,
+          "detail": "擢(0°) 传统月头擢双子0°，学界有争议"
+        },
+        {
+          "dignity": "triplicity",
+          "weight": 3,
+          "detail": "三分主(夜)"
+        },
+        {
+          "dignity": "term",
+          "weight": 2,
+          "detail": "界(<7°)"
+        }
+      ],
+      "dignityScore": 14,
+      "termsCompare": {
+        "degInSign": 5.1,
+        "egyptian": {
+          "planet": "水星",
+          "end": 7
+        },
+        "ptolemy": {
+          "planets": [
+            "水星"
+          ],
+          "start": 0,
+          "end": 7
+        },
+        "valens": {
+          "planet": "水星",
+          "start": 0,
+          "end": 6
+        },
+        "match": "all"
+      },
+      "accidental": {
+        "score": -1,
+        "notes": [
+          "宫位 8宫 -4（CE-043）",
+          "顺行 +4（CE-042）",
+          "东出(日之后) -2（CE-043 月水金东出为弱）",
+          "离焦(自主)：CE-042 离焦+5 未计——无脱离阈值界定",
+          "疾行 1.70°/d > 均速 1.383（SD-027）+1",
+          "刑凶星 SD 表无分值条目，未判（实事求是）"
+        ]
+      },
+      "totalScore": 13
+    },
+    {
+      "idx": 3,
+      "en": "Venus",
+      "zh": "金星",
+      "glyph": "♀",
+      "lon": 48.385653650411946,
+      "lat": -1.9519341652180044,
+      "dist": 1.2525486905724459,
+      "speed": 1.1756806769069468,
+      "retrograde": false,
+      "position": {
+        "signIdx": 1,
+        "signEn": "Taurus",
+        "signZh": "金牛",
+        "signGlyph": "♉",
+        "signDeg": 18.383333333333333,
+        "text": "金牛 18°23′",
+        "raw": 48.385653650411946
+      },
+      "house": 8,
+      "essential": [
+        {
+          "dignity": "domicile",
+          "weight": 5,
+          "detail": "庙"
+        }
+      ],
+      "dignityScore": 5,
+      "termsCompare": {
+        "degInSign": 18.4,
+        "egyptian": {
+          "planet": "木星",
+          "end": 22
+        },
+        "ptolemy": {
+          "planets": [
+            "木星"
+          ],
+          "start": 15,
+          "end": 22
+        },
+        "valens": {
+          "planet": "木星",
+          "start": 14,
+          "end": 22
+        },
+        "match": "all"
+      },
+      "accidental": {
+        "score": -3,
+        "notes": [
+          "宫位 8宫 -4（CE-043）",
+          "顺行 +4（CE-042）",
+          "东出(日之后) -2（CE-043 月水金东出为弱）",
+          "离焦(自主)：CE-042 离焦+5 未计——无脱离阈值界定",
+          "慢行 1.18°/d < 均速 1.2（SD-061）-1",
+          "刑凶星 SD 表无分值条目，未判（实事求是）"
+        ]
+      },
+      "totalScore": 2
+    },
+    {
+      "idx": 4,
+      "en": "Mars",
+      "zh": "火星",
+      "glyph": "♂",
+      "lon": 10.801599021918138,
+      "lat": -1.9833691671084657,
+      "dist": 1.280921574763368,
+      "speed": 0.7193196781289838,
+      "retrograde": false,
+      "position": {
+        "signIdx": 0,
+        "signEn": "Aries",
+        "signZh": "白羊",
+        "signGlyph": "♈",
+        "signDeg": 10.8,
+        "text": "白羊 10°48′",
+        "raw": 10.801599021918138
+      },
+      "house": 6,
+      "essential": [
+        {
+          "dignity": "domicile",
+          "weight": 5,
+          "detail": "庙"
+        },
+        {
+          "dignity": "term",
+          "weight": 2,
+          "detail": "界(<26°)"
+        }
+      ],
+      "dignityScore": 7,
+      "termsCompare": {
+        "degInSign": 10.8,
+        "egyptian": {
+          "planet": "金星",
+          "end": 14
+        },
+        "ptolemy": {
+          "planets": [
+            "金星"
+          ],
+          "start": 6,
+          "end": 14
+        },
+        "valens": {
+          "planet": "金星",
+          "start": 6,
+          "end": 12
+        },
+        "match": "all"
+      },
+      "accidental": {
+        "score": 3,
+        "notes": [
+          "宫位 6宫 -4（CE-043）",
+          "顺行 +4（CE-042）",
+          "东出(日之后) +2（CE-042 火木土东出）",
+          "离焦(自主)：CE-042 离焦+5 未计——无脱离阈值界定",
+          "疾行 0.72°/d > 均速 0.524（SD-027）+1",
+          "刑凶星 SD 表无分值条目，未判（实事求是）"
+        ]
+      },
+      "totalScore": 10
+    },
+    {
+      "idx": 5,
+      "en": "Jupiter",
+      "zh": "木星",
+      "glyph": "♃",
+      "lon": 105.81730410139532,
+      "lat": 0.1851626984369048,
+      "dist": 6.138512882411087,
+      "speed": 0.2164538852445492,
+      "retrograde": false,
+      "position": {
+        "signIdx": 3,
+        "signEn": "Cancer",
+        "signZh": "巨蟹",
+        "signGlyph": "♋",
+        "signDeg": 15.816666666666666,
+        "text": "巨蟹 15°49′",
+        "raw": 105.81730410139532
+      },
+      "house": 9,
+      "essential": [
+        {
+          "dignity": "exaltation",
+          "weight": 4,
+          "detail": "擢(15°)"
+        }
+      ],
+      "dignityScore": 4,
+      "termsCompare": {
+        "degInSign": 15.8,
+        "egyptian": {
+          "planet": "水星",
+          "end": 20
+        },
+        "ptolemy": {
+          "planets": [
+            "木星",
+            "水星"
+          ],
+          "start": 13,
+          "end": 20
+        },
+        "valens": {
+          "planet": "水星",
+          "start": 13,
+          "end": 19
+        },
+        "match": "all"
+      },
+      "accidental": {
+        "score": 5,
+        "notes": [
+          "宫位 9宫 +2（CE-042）",
+          "顺行 +4（CE-042）",
+          "西入(日之前) -2（CE-043 火木土西入为弱）",
+          "离焦(自主)：CE-042 离焦+5 未计——无脱离阈值界定",
+          "疾行 0.22°/d > 均速 0.083（SD-027）+1",
+          "刑凶星 SD 表无分值条目，未判（实事求是）"
+        ]
+      },
+      "totalScore": 9
+    },
+    {
+      "idx": 6,
+      "en": "Saturn",
+      "zh": "土星",
+      "glyph": "♄",
+      "lon": 294.0514238007963,
+      "lat": 0.11703015882547413,
+      "dist": 9.122550335919763,
+      "speed": -0.05829553659724826,
+      "retrograde": true,
+      "position": {
+        "signIdx": 9,
+        "signEn": "Capricorn",
+        "signZh": "摩羯",
+        "signGlyph": "♑",
+        "signDeg": 24.05,
+        "text": "摩羯 24°3′",
+        "raw": 294.0514238007963
+      },
+      "house": 4,
+      "essential": [
+        {
+          "dignity": "domicile",
+          "weight": 5,
+          "detail": "庙"
+        },
+        {
+          "dignity": "term",
+          "weight": 2,
+          "detail": "界(<30°)"
+        }
+      ],
+      "dignityScore": 7,
+      "termsCompare": {
+        "degInSign": 24.1,
+        "egyptian": {
+          "planet": "火星",
+          "end": 25
+        },
+        "ptolemy": {
+          "planets": [
+            "土星",
+            "火星"
+          ],
+          "start": 19,
+          "end": 25
+        },
+        "valens": {
+          "planet": "土星",
+          "start": 22,
+          "end": 26
+        },
+        "match": "pt_val"
+      },
+      "accidental": {
+        "score": 5,
+        "notes": [
+          "宫位 4宫 +4（CE-042）",
+          "逆行 -1（CE-043）",
+          "东出(日之后) +2（CE-042 火木土东出）",
+          "离焦(自主)：CE-042 离焦+5 未计——无脱离阈值界定",
+          "刑凶星 SD 表无分值条目，未判（实事求是）"
+        ]
+      },
+      "totalScore": 12
+    },
+    {
+      "idx": 7,
+      "en": "Uranus",
+      "zh": "天王星",
+      "glyph": "♅",
+      "lon": 278.1781742576662,
+      "lat": -0.32370767304348963,
+      "dist": 18.423880202423764,
+      "speed": -0.03884485879644932,
+      "retrograde": true,
+      "position": {
+        "signIdx": 9,
+        "signEn": "Capricorn",
+        "signZh": "摩羯",
+        "signGlyph": "♑",
+        "signDeg": 8.183333333333334,
+        "text": "摩羯 8°11′",
+        "raw": 278.1781742576662
+      },
+      "house": 3,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 8,
+      "en": "Neptune",
+      "zh": "海王星",
+      "glyph": "♆",
+      "lon": 283.72540762516286,
+      "lat": 0.8762225832459829,
+      "dist": 29.24972017779231,
+      "speed": -0.024956318186740725,
+      "retrograde": true,
+      "position": {
+        "signIdx": 9,
+        "signEn": "Capricorn",
+        "signZh": "摩羯",
+        "signGlyph": "♑",
+        "signDeg": 13.733333333333333,
+        "text": "摩羯 13°44′",
+        "raw": 283.72540762516286
+      },
+      "house": 3,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 9,
+      "en": "Pluto",
+      "zh": "冥王星",
+      "glyph": "♇",
+      "lon": 225.40824941420044,
+      "lat": 15.855943606050706,
+      "dist": 28.88604213024871,
+      "speed": -0.020302138682238496,
+      "retrograde": true,
+      "position": {
+        "signIdx": 7,
+        "signEn": "Scorpio",
+        "signZh": "天蝎",
+        "signGlyph": "♏",
+        "signDeg": 15.4,
+        "text": "天蝎 15°24′",
+        "raw": 225.40824941420044
+      },
+      "house": 1,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 10,
+      "en": "Mean Node",
+      "zh": "平均月交点",
+      "glyph": "☊",
+      "lon": 309.7155401782966,
+      "lat": 0,
+      "dist": 0.00256955528979999,
+      "speed": -0.05296776658162734,
+      "retrograde": true,
+      "position": {
+        "signIdx": 10,
+        "signEn": "Aquarius",
+        "signZh": "宝瓶",
+        "signGlyph": "♒",
+        "signDeg": 9.716666666666667,
+        "text": "宝瓶 9°43′",
+        "raw": 309.7155401782966
+      },
+      "house": 4,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 11,
+      "en": "True Node",
+      "zh": "真月交点",
+      "glyph": "☊",
+      "lon": 308.11665891936275,
+      "lat": 0,
+      "dist": 0.0026281520664331484,
+      "speed": 0.01783552702189974,
+      "retrograde": false,
+      "position": {
+        "signIdx": 10,
+        "signEn": "Aquarius",
+        "signZh": "宝瓶",
+        "signGlyph": "♒",
+        "signDeg": 8.116666666666667,
+        "text": "宝瓶 8°7′",
+        "raw": 308.11665891936275
+      },
+      "house": 4,
+      "essential": [],
+      "dignityScore": 0
+    }
+  ],
+  "houses": {
+    "system": "P",
+    "systemName": "Placidus",
+    "basedOn": "natal",
+    "cusps": [
+      {
+        "signIdx": 5,
+        "signEn": "Virgo",
+        "signZh": "处女",
+        "signGlyph": "♍",
+        "signDeg": 21.683333333333334,
+        "text": "处女 21°41′",
+        "raw": 171.67679212259682
+      },
+      {
+        "signIdx": 6,
+        "signEn": "Libra",
+        "signZh": "天秤",
+        "signGlyph": "♎",
+        "signDeg": 17.15,
+        "text": "天秤 17°9′",
+        "raw": 197.15255453656414
+      },
+      {
+        "signIdx": 7,
+        "signEn": "Scorpio",
+        "signZh": "天蝎",
+        "signGlyph": "♏",
+        "signDeg": 17.133333333333333,
+        "text": "天蝎 17°8′",
+        "raw": 227.1334527363673
+      },
+      {
+        "signIdx": 8,
+        "signEn": "Sagittarius",
+        "signZh": "射手",
+        "signGlyph": "♐",
+        "signDeg": 20.433333333333334,
+        "text": "射手 20°26′",
+        "raw": 260.4329952883861
+      },
+      {
+        "signIdx": 9,
+        "signEn": "Capricorn",
+        "signZh": "摩羯",
+        "signGlyph": "♑",
+        "signDeg": 24.05,
+        "text": "摩羯 24°3′",
+        "raw": 294.04524355097885
+      },
+      {
+        "signIdx": 10,
+        "signEn": "Aquarius",
+        "signZh": "宝瓶",
+        "signGlyph": "♒",
+        "signDeg": 24.866666666666667,
+        "text": "宝瓶 24°52′",
+        "raw": 324.865331280123
+      },
+      {
+        "signIdx": 11,
+        "signEn": "Pisces",
+        "signZh": "双鱼",
+        "signGlyph": "♓",
+        "signDeg": 21.683333333333334,
+        "text": "双鱼 21°41′",
+        "raw": 351.6767921225968
+      },
+      {
+        "signIdx": 0,
+        "signEn": "Aries",
+        "signZh": "白羊",
+        "signGlyph": "♈",
+        "signDeg": 17.15,
+        "text": "白羊 17°9′",
+        "raw": 17.15255453656414
+      },
+      {
+        "signIdx": 1,
+        "signEn": "Taurus",
+        "signZh": "金牛",
+        "signGlyph": "♉",
+        "signDeg": 17.133333333333333,
+        "text": "金牛 17°8′",
+        "raw": 47.1334527363673
+      },
+      {
+        "signIdx": 2,
+        "signEn": "Gemini",
+        "signZh": "双子",
+        "signGlyph": "♊",
+        "signDeg": 20.433333333333334,
+        "text": "双子 20°26′",
+        "raw": 80.43299528838612
+      },
+      {
+        "signIdx": 3,
+        "signEn": "Cancer",
+        "signZh": "巨蟹",
+        "signGlyph": "♋",
+        "signDeg": 24.05,
+        "text": "巨蟹 24°3′",
+        "raw": 114.04524355097885
+      },
+      {
+        "signIdx": 4,
+        "signEn": "Leo",
+        "signZh": "狮子",
+        "signGlyph": "♌",
+        "signDeg": 24.866666666666667,
+        "text": "狮子 24°52′",
+        "raw": 144.86533128012297
+      }
+    ],
+    "cuspsRaw": [
+      171.67679212259682,
+      197.15255453656414,
+      227.1334527363673,
+      260.4329952883861,
+      294.04524355097885,
+      324.865331280123,
+      351.6767921225968,
+      17.15255453656414,
+      47.1334527363673,
+      80.43299528838612,
+      114.04524355097885,
+      144.86533128012297
+    ],
+    "angles": {
+      "asc": 171.67679212259682,
+      "mc": 80.43299528838612,
+      "dc": 351.6767921225968,
+      "ic": 260.4329952883861,
+      "ascF": {
+        "signIdx": 5,
+        "signEn": "Virgo",
+        "signZh": "处女",
+        "signGlyph": "♍",
+        "signDeg": 21.683333333333334,
+        "text": "处女 21°41′",
+        "raw": 171.67679212259682
+      },
+      "mcF": {
+        "signIdx": 2,
+        "signEn": "Gemini",
+        "signZh": "双子",
+        "signGlyph": "♊",
+        "signDeg": 20.433333333333334,
+        "text": "双子 20°26′",
+        "raw": 80.43299528838612
+      },
+      "dcF": {
+        "signIdx": 11,
+        "signEn": "Pisces",
+        "signZh": "双鱼",
+        "signGlyph": "♓",
+        "signDeg": 21.683333333333334,
+        "text": "双鱼 21°41′",
+        "raw": 351.6767921225968
+      },
+      "icF": {
+        "signIdx": 8,
+        "signEn": "Sagittarius",
+        "signZh": "射手",
+        "signGlyph": "♐",
+        "signDeg": 20.433333333333334,
+        "text": "射手 20°26′",
+        "raw": 260.4329952883861
+      }
+    }
+  },
+  "aspects": [
+    {
+      "p1": 1,
+      "p2": 2,
+      "aspect": "Square",
+      "aspectZh": "刑",
+      "glyph": "□",
+      "angle": 90,
+      "orbUsed": 5.802418587348313,
+      "orb": 7,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 1,
+      "p2": 5,
+      "aspect": "Trine",
+      "aspectZh": "三合",
+      "glyph": "△",
+      "angle": 120,
+      "orbUsed": 4.89361594943324,
+      "orb": 8,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 1,
+      "p2": 7,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 2.7455138942958683,
+      "orb": 6,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 1,
+      "p2": 8,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 2.8017194732007624,
+      "orb": 6,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 1,
+      "p2": 9,
+      "aspect": "Trine",
+      "aspectZh": "三合",
+      "glyph": "△",
+      "angle": 120,
+      "orbUsed": 4.484561262238344,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 2,
+      "p2": 4,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 5.680329457304339,
+      "orb": 6,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 2,
+      "p2": 10,
+      "aspect": "Trine",
+      "aspectZh": "三合",
+      "glyph": "△",
+      "angle": 120,
+      "orbUsed": 4.594270613682795,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 2,
+      "p2": 11,
+      "aspect": "Trine",
+      "aspectZh": "三合",
+      "glyph": "△",
+      "angle": 120,
+      "orbUsed": 2.9953893547489656,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 3,
+      "p2": 5,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 2.5683495490166237,
+      "orb": 6,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 3,
+      "p2": 6,
+      "aspect": "Trine",
+      "aspectZh": "三合",
+      "glyph": "△",
+      "angle": 120,
+      "orbUsed": 5.665770150384333,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 3,
+      "p2": 8,
+      "aspect": "Trine",
+      "aspectZh": "三合",
+      "glyph": "△",
+      "angle": 120,
+      "orbUsed": 4.66024602524908,
+      "orb": 8,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 3,
+      "p2": 9,
+      "aspect": "Opposition",
+      "aspectZh": "对冲",
+      "glyph": "☍",
+      "angle": 180,
+      "orbUsed": 2.9774042362114983,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 4,
+      "p2": 5,
+      "aspect": "Square",
+      "aspectZh": "刑",
+      "glyph": "□",
+      "angle": 90,
+      "orbUsed": 5.015705079477186,
+      "orb": 7,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 4,
+      "p2": 7,
+      "aspect": "Square",
+      "aspectZh": "刑",
+      "glyph": "□",
+      "angle": 90,
+      "orbUsed": 2.623424764251922,
+      "orb": 7,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 4,
+      "p2": 8,
+      "aspect": "Square",
+      "aspectZh": "刑",
+      "glyph": "□",
+      "angle": 90,
+      "orbUsed": 2.9238086032447086,
+      "orb": 7,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 4,
+      "p2": 10,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 1.0860588436215721,
+      "orb": 6,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 4,
+      "p2": 11,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 2.6849401025554016,
+      "orb": 6,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 5,
+      "p2": 7,
+      "aspect": "Opposition",
+      "aspectZh": "对冲",
+      "glyph": "☍",
+      "angle": 180,
+      "orbUsed": 7.639129843729108,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 5,
+      "p2": 8,
+      "aspect": "Opposition",
+      "aspectZh": "对冲",
+      "glyph": "☍",
+      "angle": 180,
+      "orbUsed": 2.0918964762324777,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 5,
+      "p2": 9,
+      "aspect": "Trine",
+      "aspectZh": "三合",
+      "glyph": "△",
+      "angle": 120,
+      "orbUsed": 0.4090546871948817,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 7,
+      "p2": 8,
+      "aspect": "Conjunction",
+      "aspectZh": "合相",
+      "glyph": "☌",
+      "angle": 0,
+      "orbUsed": 5.547233367496631,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 8,
+      "p2": 9,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 1.6828417890375817,
+      "orb": 6,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 9,
+      "p2": 10,
+      "aspect": "Square",
+      "aspectZh": "刑",
+      "glyph": "□",
+      "angle": 90,
+      "orbUsed": 5.6927092359038625,
+      "orb": 7,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 10,
+      "p2": 11,
+      "aspect": "Conjunction",
+      "aspectZh": "合相",
+      "glyph": "☌",
+      "angle": 0,
+      "orbUsed": 1.5988812589338295,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    }
+  ],
+  "conditions": [
+    {
+      "idx": 0,
+      "zh": "太阳",
+      "glyph": "☉",
+      "sunRelation": "—",
+      "oriental": "—",
+      "retrograde": false,
+      "stationary": false,
+      "voidOfCourse": true,
+      "sect": "失时",
+      "houseQuality": "果宫",
+      "detail": [
+        "太阳为盘主光源，不判日关系",
+        "sect 失时（夜生）",
+        "9宫"
+      ]
+    },
+    {
+      "idx": 1,
+      "zh": "月亮",
+      "glyph": "☽",
+      "sunRelation": "free",
+      "oriental": "东",
+      "retrograde": false,
+      "stationary": false,
+      "voidOfCourse": false,
+      "sect": "得时",
+      "houseQuality": "续宫",
+      "detail": [
+        "离日102.9° 自主",
+        "东出(日之后102.9°，Dorotheus 阈值0°) 偏热主动",
+        "顺行 13.25°/d",
+        "sect 得时（夜生）",
+        "续宫(5宫)"
+      ]
+    },
+    {
+      "idx": 2,
+      "zh": "水星",
+      "glyph": "☿",
+      "sunRelation": "free",
+      "oriental": "日芒间",
+      "retrograde": false,
+      "stationary": false,
+      "voidOfCourse": true,
+      "sect": "随处境",
+      "houseQuality": "续宫",
+      "detail": [
+        "离日18.7° 自主",
+        "距日18.7°未达东出阈值，日芒间不计",
+        "顺行 1.70°/d",
+        "空亡（无入相位，事难前行，Clavis/通用）",
+        "sect 随处境（夜生）",
+        "续宫(8宫)"
+      ]
+    },
+    {
+      "idx": 3,
+      "zh": "金星",
+      "glyph": "♀",
+      "sunRelation": "free",
+      "oriental": "东",
+      "retrograde": false,
+      "stationary": false,
+      "voidOfCourse": false,
+      "sect": "得时",
+      "houseQuality": "续宫",
+      "detail": [
+        "离日35.4° 自主",
+        "东出(日之后35.4°，Dorotheus 阈值15°) 偏热主动",
+        "顺行 1.18°/d",
+        "sect 得时（夜生）",
+        "续宫(8宫)"
+      ]
+    },
+    {
+      "idx": 4,
+      "zh": "火星",
+      "glyph": "♂",
+      "sunRelation": "free",
+      "oriental": "东",
+      "retrograde": false,
+      "stationary": false,
+      "voidOfCourse": false,
+      "sect": "得时",
+      "houseQuality": "果宫",
+      "detail": [
+        "离日73.0° 自主",
+        "东出(日之后73.0°，Dorotheus 阈值18°) 偏热主动",
+        "顺行 0.72°/d",
+        "sect 得时（夜生）",
+        "果宫(6宫)"
+      ]
+    },
+    {
+      "idx": 5,
+      "zh": "木星",
+      "glyph": "♃",
+      "sunRelation": "free",
+      "oriental": "西",
+      "retrograde": false,
+      "stationary": false,
+      "voidOfCourse": false,
+      "sect": "失时",
+      "houseQuality": "果宫",
+      "detail": [
+        "离日22.0° 自主",
+        "西没(日之前) 偏冷内敛",
+        "顺行 0.22°/d",
+        "sect 失时（夜生）",
+        "果宫(9宫)"
+      ]
+    },
+    {
+      "idx": 6,
+      "zh": "土星",
+      "glyph": "♄",
+      "sunRelation": "free",
+      "oriental": "东",
+      "retrograde": true,
+      "stationary": false,
+      "voidOfCourse": true,
+      "sect": "随处境",
+      "houseQuality": "角宫",
+      "detail": [
+        "离日149.8° 自主",
+        "东出(日之后149.8°，Dorotheus 阈值15°) 偏热主动",
+        "逆行（偶然减损，不单独定罪，Bonatti 按整体权衡）",
+        "空亡（无入相位，事难前行，Clavis/通用）",
+        "sect 随处境（夜生）",
+        "角宫(4宫)"
+      ]
+    },
+    {
+      "idx": 7,
+      "zh": "天王星",
+      "glyph": "♅",
+      "modern": true
+    },
+    {
+      "idx": 8,
+      "zh": "海王星",
+      "glyph": "♆",
+      "modern": true
+    },
+    {
+      "idx": 9,
+      "zh": "冥王星",
+      "glyph": "♇",
+      "modern": true
+    },
+    {
+      "idx": 10,
+      "zh": "平均月交点",
+      "glyph": "☊",
+      "modern": true
+    },
+    {
+      "idx": 11,
+      "zh": "真月交点",
+      "glyph": "☊",
+      "modern": true
+    }
+  ],
+  "almuten": {
+    "modern": {
+      "zh": "水星",
+      "glyph": "☿",
+      "total": 13,
+      "essential": 14,
+      "accidental": -1,
+      "tieNote": ""
+    },
+    "ancient": {
+      "zh": "水星",
+      "glyph": "☿",
+      "score": 16,
+      "moonSign": 11,
+      "mercSign": 2,
+      "list": [
+        "界",
+        "庙",
+        "擢(0°)",
+        "三分(夜)",
+        "界"
+      ],
+      "note": "月座+水星座尊贵权合计（界/面按星座整体计，Clavis 原文口径）"
+    },
+    "sources": [
+      "Clavis CP3-504",
+      "Clavis CP3-307"
+    ],
+    "note": "吉照升点/其主或日月之平局细则未实现（记待办）"
+  },
+  "hyleg": {
+    "found": {
+      "name": "Sun",
+      "label": "太阳",
+      "lon": 83.81118253218429,
+      "house": 10,
+      "qualify": "合格（角宫/续宫）"
+    },
+    "skipped": [
+      "月亮(6宫不合格)"
+    ],
+    "method": "astroak",
+    "isDay": "night"
+  },
+  "alcocoden": {
+    "hyleg": {
+      "name": "Sun",
+      "label": "太阳",
+      "lon": 83.81118253218429,
+      "house": 10,
+      "qualify": "合格（角宫/续宫）"
+    },
+    "alcocoden": [
+      {
+        "zh": "水星",
+        "glyph": "☿",
+        "idx": 2,
+        "lon": 65.1212695646138,
+        "score": 12,
+        "list": "domicile/exaltation/triplicity"
+      }
+    ],
+    "maxScore": 12,
+    "note": "双子擢水星0° 为 dignity_tables 存疑标注（见数据注释）"
+  }
+}

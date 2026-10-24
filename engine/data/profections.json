@@ -1,0 +1,26 @@
+{
+  "name": "Annual Profections (Yearly Profection)",
+  "origin": "Hellenistic，Valens《Anthology》Book IV ch.11 引入",
+  "formula": "profected_house = (age mod 12) + 1，其中 age = 最近一个生日时的年龄；从上升星座起数（上升本身=第1宫）",
+  "mapping": {
+    "remainder_0": "1st house (ages 0,12,24,36,48,60,72)",
+    "remainder_1": "2nd house (1,13,25,37,49,61,73)",
+    "remainder_2": "3rd house (2,14,26,38,50,62,74)",
+    "remainder_3": "4th house (3,15,27,39,51,63,75)",
+    "remainder_4": "5th house (4,16,28,40,52,64,76)",
+    "remainder_5": "6th house (5,17,29,41,53,65,77)",
+    "remainder_6": "7th house (6,18,30,42,54,66,78)",
+    "remainder_7": "8th house (7,19,31,43,55,67,79)",
+    "remainder_8": "9th house (8,20,32,44,56,68,80)",
+    "remainder_9": "10th house (9,21,33,45,57,69,81)",
+    "remainder_10": "11th house (10,22,34,46,58,70,82)",
+    "remainder_11": "12th house (11,23,35,47,59,71,83)"
+  },
+  "lord_of_year": "该宫宫头星座的传统主星（如天蝎宫头→火星）",
+  "usage": "观察行运与本命 Lord of Year 的相位触发当年主题；行运经过小限宫亦加重",
+  "sources": [
+    "https://www.astrelleapp.com/en/learn/annual-profections-astrology",
+    "https://tropicalastro.com/annual-profections-calculator",
+    "Valens, Anthology IV.11 (Riley 译)"
+  ]
+}

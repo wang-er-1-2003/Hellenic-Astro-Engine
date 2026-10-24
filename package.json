@@ -1,0 +1,35 @@
+{
+  "name": "astrology-engine-submodule",
+  "productName": "星盘引擎子件",
+  "version": "0.1.0",
+  "description": "Electron 独立子件：西方星占排盘引擎。Swiss Ephemeris wasm 计算行星/宫位/相位/尊贵，输出结构化星盘 JSON，供第4层规则解读调用。",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test:engine": "electron engine/cli.js ny2000",
+    "test:l497": "electron engine/cli.js l497"
+  },
+  "keywords": ["astrology", "swisseph", "wasm", "horoscope", "星盘"],
+  "author": "wang-er-1-2003",
+  "license": "GPL-3.0-or-later",
+  "build": {
+    "appId": "com.local.astrologyengine",
+    "productName": "星盘引擎子件",
+    "electronVersion": "31.7.7",
+    "directories": { "output": "dist" },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer/**",
+      "engine/**",
+      "LICENSE"
+    ],
+    "win": { "target": ["portable"] },
+    "artifactName": "${productName}-${version}-portable.${ext}"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^31.7.7"
+  }
+}

@@ -1,0 +1,91 @@
+{
+ "domain": "horary",
+ "questionType": "盗窃失物",
+ "chartTime": 2461055.6666666665,
+ "verdict": "倾向败",
+ "score": -6.5,
+ "keyFactors": [
+  {
+   "factor": "月亮空亡(void of course)",
+   "weight": -2,
+   "detail": "月离末相位后不再入任何新相位，事难成",
+   "source": "Bonatti146/Clavis卜卦判例"
+  },
+  {
+   "factor": "月亮速率异常",
+   "weight": -0.5,
+   "detail": "月速 11.94°/d（常态 12-14.2）",
+   "source": "通用判据"
+  },
+  {
+   "factor": "问事方主星燃烧",
+   "weight": -2,
+   "detail": "金星距日 2.0°",
+   "source": "通用判据"
+  },
+  {
+   "factor": "月亮阻碍#11 月亮运行迟慢（11.94°/d<12）",
+   "weight": -1,
+   "detail": "月亮运行迟慢（11.94°/d<12）",
+   "source": "Bonatti 映射-月亮17阻碍"
+  },
+  {
+   "factor": "金星阻碍#3 金星灼伤/日辉下（距日 2.0°）",
+   "weight": -1,
+   "detail": "金星灼伤/日辉下（距日 2.0°）",
+   "source": "Bonatti 映射-行星10阻碍"
+  },
+  {
+   "factor": "金星阻碍#8 金星游走（无本然尊贵）",
+   "weight": -1,
+   "detail": "金星游走（无本然尊贵）",
+   "source": "Bonatti 映射-行星10阻碍"
+  },
+  {
+   "factor": "固定星助成：射手7°55′（V）合月亮",
+   "weight": 1,
+   "detail": "吉性恒星与征象星实体合相（距0.9°）",
+   "source": "BO-099/BO-100"
+  }
+ ],
+ "timeHint": "升点金牛（固定）：月或年；月落射手（双体）：月或周",
+ "obstructions": {
+  "moon": [
+   {
+    "n": "11",
+    "name": "月亮运行迟慢（11.94°/d<12）",
+    "sev": "high"
+   }
+  ],
+  "significators": [
+   {
+    "planet": "金星",
+    "hits": [
+     {
+      "n": "3",
+      "name": "金星灼伤/日辉下（距日 2.0°）",
+      "sev": "high"
+     },
+     {
+      "n": "8",
+      "name": "金星游走（无本然尊贵）",
+      "sev": "high"
+     }
+    ]
+   }
+  ]
+ },
+ "special": {
+  "locationHint": "失物征象（月落射手）：大兽厩（马牛羊）、谷仓、高地、山边、鹰猎/猎场、高室/阁楼、内室",
+  "suspectProfile": "贼之相貌（土星落双鱼）：圆脸长尖下巴、眉弯如弓（月角形）、细须、轻快敏捷、聪明尖锐",
+  "distanceHint": "月距ASC 140°，射手（双体）→ 约 6 弗隆起（Gadbury）",
+  "recoverHint": "月空亡：失物难寻回或拖延"
+ },
+ "sources": [
+  "规则库-Bonatti146.xlsx",
+  "规则库-Dariot卜卦总纲.xlsx",
+  "规则库-MashallahReception.xlsx",
+  "规则库-Griffin盗窃卜卦.xlsx",
+  "规则库-Gadbury偷窃失物.xlsx"
+ ]
+}

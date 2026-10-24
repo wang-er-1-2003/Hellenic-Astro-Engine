@@ -1,0 +1,249 @@
+AlBiruni阿拉伯点 | 映射-行星点 | 9x4 | 映射表 A：行星点（Fortun /  /  / 
+AlBiruni阿拉伯点 | 映射-宫位点 | 82x5 | 映射表 B：宫位点（Fortun /  /  /  / 
+AlBiruni阿拉伯点 | 映射-其他点 | 12x4 | 映射表 C：非行星非宫位点（Te /  /  / 
+AlBiruni阿拉伯点 | 映射-年季点 | 21x4 | 映射表 D：年盘/合相/四元素点 /  /  / 
+AlBiruni阿拉伯点 | 映射-庄稼点 | 26x3 | 映射表 E：庄稼/物产点（25  /  / 
+AlBiruni阿拉伯点 | 映射-卜卦点 | 20x3 | 映射表 F：卜卦问事点（18 式 /  / 
+Bonatti146 | 映射-月亮17阻碍 | 19x4 | 映射表 A：月亮 17 种阻碍（ /  /  / 
+Bonatti146 | 映射-行星10阻碍 | 12x3 | 映射表 B：行星 10 种阻碍（ /  / 
+Bonatti146 | 映射-行星喜乐 | 9x5 | 映射表 C：行星四大喜乐（BO- /  /  /  / 
+Bonatti146 | 映射-落陷与速度 | 9x4 | 映射表 D：行星落陷 + 星座速 /  /  / 
+Bonatti146 | 映射-龙尾宫位损害 | 14x3 | 映射表 E：龙尾所在宫之损害（B /  / 
+Bonatti146 | 映射-恒星星表 | 14x3 | 映射表 F：恒星（凶性摘要 BO /  / 
+Bonatti146 | 映射-判断14点 | 16x2 | 映射表 G：卜卦判断方法论 14 / 
+Bonatti146 | 映射-行星赠赐世代 | 9x3 | 映射表 H：七星赠赐之事与持续代 /  / 
+Bonatti146 | 映射-上升双庙规则 | 14x2 | 映射表 I：上升星座→历练/命运 / 
+Bonatti4宫择时 | 映射-土星昼夜安置 | 6x2 | 映射表 A：买地不建时土星安置（ / 
+Bonatti4宫择时 | 映射-建物类型行星 | 8x3 | 映射表 B：建筑类型-主调行星（ /  / 
+Bonatti4宫择时 | 映射-磨坊上升星座 | 6x2 | 映射表 C：磨坊类型-上升星座（ / 
+Bonatti4宫择时 | 映射-树木生长方向 | 6x2 | 映射表 D：上升主东出/西没与树 / 
+Bonatti4宫择时 | 映射-宫位角色分工 | 7x3 | 映射表 E：买地/租地宫位角色（ /  / 
+Cardano箴言第一卷 | 行星周期表（Cardano 表1a、1b，现代换算） | 9x3 | item / period / annual
+Cardano箴言第一卷 | 行星最大纬度表（表3） | 6x3 | item / south / north
+Cardano箴言第一卷 | 擢升度数表（表5b，Cardano 原表） | 8x4 | item / sign / degree / note
+Cardano箴言第一卷 | 1540年行星远地点（表4） | 7x4 | item / sign / degree / note
+Cardano箴言第一卷 | 四体液-行星表（Aph.91） | 6x2 | item / planets
+Cardano箴言第一卷 | 疾病时长-行星表（Aph.93） | 6x2 | item / planets
+Clavis世俗蚀兆卷 | 映射X-七行星世俗征象 | 10x3 | 项目 / 含义 / 备注
+Clavis世俗蚀兆卷 | 映射Y-蚀主预兆对照 | 11x3 | 项目 / 含义 / 备注
+Clavis世俗蚀兆卷 | 映射Z-星座性质表 | 14x3 | 项目 / 含义 / 备注
+Clavis十二宫问事判例卷 | 映射V-CHAP XIII判例总览 | 14x3 | 项目 / 含义 / 备注
+Clavis十二宫问事判例卷 | 映射W-Part II示例盘数据 | 15x3 | 项目 / 含义 / 备注
+Clavis卜卦判例卷 | 映射A-Haly船体分座 | 13x3 | 项目 / 含义 / 备注
+Clavis卜卦判例卷 | 映射B-缺席者落宫判读 | 13x3 | 项目 / 含义 / 备注
+Clavis卜卦判例卷 | 映射C-月受克诊断24 | 25x3 | 项目 / 含义 / 备注
+Clavis卜卦判例卷 | 映射D-行星身体部位 | 9x3 | 项目 / 含义 / 备注
+Clavis卜卦判例卷 | 映射E-行星病性 | 8x3 | 项目 / 含义 / 备注
+Clavis卜卦判例卷 | 映射F-分离相位孕月 | 7x3 | 项目 / 含义 / 备注
+Clavis卜卦判例卷 | 映射G-盗贼特征 | 17x3 | 项目 / 含义 / 备注
+Clavis卜卦判例卷 | 映射H-失物定位 | 10x3 | 项目 / 含义 / 备注
+Clavis基础教义卷 | 映射A-落座描述字典 | 85x3 | 行星落座 / 体型特征 / 气质特征
+Clavis基础教义卷 | 映射B-落座疾病字典 | 92x3 | 行星落座 / 疾病 / (同)
+Clavis基础教义卷 | 映射C-草药归属 | 8x2 | 行星 / 草药清单
+Clavis基础教义卷 | 映射D-Ptolemy尊贵表 | 13x7 | 星座 / 庙(昼夜) / 擢升 / 三分主(昼夜) / 失势 / 陷落 / 界(埃及制度数)
+Clavis基础教义卷 | 映射E-术语27项 | 28x3 | 序号 / 术语 / 定义
+Clavis基础教义卷 | 映射F-十二宫含义 | 13x3 | 宫位 / 含义 / 角续降
+Clavis基础教义卷 | 映射G-卜卦格言 | 22x2 | 序号 / 格言
+Clavis基础教义卷 | 映射H-度数性质表 | 62x3 | 星座 / 性质类 / 度段
+Clavis择时世俗卷 | 映射I-行星时辰吉凶 | 8x3 | 项目 / 含义 / 备注
+Clavis择时世俗卷 | 映射J-月座择时 | 9x3 | 项目 / 含义 / 备注
+Clavis择时世俗卷 | 映射K-逐对行星四季气象20 | 21x3 | 项目 / 含义 / 备注
+Clavis择时世俗卷 | 映射N-32主星出没表 | 33x3 | 项目 / 含义 / 备注
+Clavis择时世俗卷 | 格言-Hermes Centiloquium | 100x3 | 编号 / 原文 / 译文
+Clavis择时世俗卷 | 格言-Bethem Centiloquium | 101x3 | 编号 / 原文 / 译文
+Clavis方向法补充卷 | 映射M-1650判例盘数据 | 22x3 | 项目 / 含义 / 备注
+Clavis方向法补充卷 | 映射N-1650判例结论验证集 | 14x3 | 项目 / 含义 / 备注
+Clavis方向法补充卷 | 映射O-赤纬赤经算例 | 12x3 | 项目 / 含义 / 备注
+Clavis方向法补充卷 | 映射P-方向实例年日换算 | 13x3 | 项目 / 含义 / 备注
+Clavis方向法补充卷 | 映射Q-Rudolphine算例 | 5x3 | 项目 / 含义 / 备注
+Clavis本命方向卷 | 映射I-Argol年限表 | 10x3 | 项目 / 含义 / 备注
+Clavis本命方向卷 | 映射J-方向时间度量三法 | 7x3 | 项目 / 含义 / 备注
+Clavis本命方向卷 | 映射K-五Hylegiacal方向所主 | 8x3 | 项目 / 含义 / 备注
+Clavis本命方向卷 | 映射L-方向相位纬度归算 | 9x3 | 项目 / 含义 / 备注
+Clavis补遗卷 | 映射R-问卜判例补遗总览 | 19x3 | 项目 / 含义 / 备注
+Clavis补遗卷 | 映射S-赛马判法要点 | 16x3 | 项目 / 含义 / 备注
+Clavis补遗卷 | 映射T-CHAP XI判例盘行星强弱 | 9x3 | 项目 / 含义 / 备注
+Dariot卜卦总纲 | 埃及界表 | 13x6 | 星座 / 界1 / 界2 / 界3 / 界4 / 界5
+Dariot卜卦总纲 | 行星性质表 | 8x7 | 行星 / 冷热干湿 / 体液 / 昼夜阴阳吉凶 / 吉凶等级 / 备注 / 界幅
+Dariot卜卦总纲 | 光束半径表 | 8x3 | 行星 / 半径 / 全径
+Dariot卜卦总纲 | 十二宫含义表 | 13x4 | 宫 / 含义 / 性质 / 备注
+Dariot卜卦总纲 | 阿拉伯点公式 | 5x3 | 点 / 公式 / 投射
+Dariot卜卦总纲 | Almuten判序 | 8x3 | 序 / 步骤 / 说明
+Dariot卜卦总纲 | 成事四法与时限 | 5x3 | 序 / 方式 / 规则
+Dariot卜卦总纲 | 时限判定 | 4x3 | 星座性质 / 时限 / 说明
+Dariot卜卦总纲 | 偶然吉凶条件 | 3x20 | 类别 / 条件列表 /  /  /  /  /  / 
+Dorotheus卷一 | 三分主星表 | 5x4 | 元素 / 星座 / 昼主序 / 夜主序
+Dorotheus卷一 | 擢升落表 | 8x3 | 行星 / 擢升 / 落
+Dorotheus卷一 | 庙与喜乐表 | 8x3 | 行星 / 庙 / 喜乐
+Dorotheus卷一 | 宫位优势序 | 13x3 | 宫位 / 名称 / 等级
+Dorotheus卷一 | 挡灾年数表 | 8x3 | 行星 / 年数 / 条件
+Dorotheus卷一 | 点数公式表 | 6x3 | 点 / 公式 / 出处
+Dorotheus卷一 | 二宫主灾因表 | 8x2 | 宫主 / 灾因
+Dorotheus卷一 | 男女行星表 | 3x2 | 性别 / 行星
+Dorotheus卷一 | 兄弟序位表 | 6x2 | 行星 / 序位
+Dorotheus卷三 | haylaj选择流程 | 6x3 | 步骤 / 选择 / 条件
+Dorotheus卷三 | 东西星判定表 | 8x3 | 行星 / 距日度数 / 性质
+Dorotheus卷三 | 推运算法步骤 | 8x3 | 步骤 / 操作 / 说明
+Dorotheus卷三 | 判例数据表 | 9x3 | 推运节点 / 上升时间 / 应期计算
+Dorotheus卷三注释 | 三作者hyleg对比 | 9x4 | 候选 / Dorotheus / Ptolemy / Al-Qabīṣī
+Dorotheus卷三注释 | 行星年数表 | 8x4 | 行星 / 大年 / 中年 / 小年
+Dorotheus卷三注释 | 44CE判例司期表 | 8x4 | 界段 / 度数范围 / 年龄 / 判词要点
+Dorotheus卷三注释 | 破坏防护规则表 | 7x3 | 类别 / 规则 / 条件
+Dorotheus卷三注释 | 尊贵领导力序 | 4x3 | 学派 / 顺序 / 说明
+Dorotheus卷二 | 婚子女点数表 | 10x3 | 点 / 公式 / 出处
+Dorotheus卷二 | 相位性质表 | 6x3 | 相位 / 性质 / 说明
+Dorotheus卷二 | 行星合相速判表 | 21x2 | 对星 / 要点
+Dorotheus卷二 | 行星入宫要点表 | 22x3 | 行星 / 宫位 / 要点
+Dorotheus卷二 | 互入他宫要点表 | 32x2 | 互入 / 要点
+Gadbury偷窃失物 | 映射-方位判据 | 12x3 | 映射表 A：去向方位判据（GD- /  / 
+Gadbury偷窃失物 | 映射-距离换算 | 6x2 | 映射表 B：走失距离换算（GD- / 
+Gadbury偷窃失物 | 映射-窃贼年龄性别 | 13x2 | 映射表 C：窃贼年龄与性别判据（ / 
+Gadbury偷窃失物 | 映射-家贼识别 | 8x2 | 映射表 D：家贼识别（GD-04 / 
+Gadbury偷窃失物 | 映射-应期换算 | 5x2 | 映射表 E：失物复得应期换算（G / 
+GreekHoroscopeL497 | 映射-宫名语义 | 14x5 | 映射表 A：12 宫希腊宫名与语 /  /  /  / 
+GreekHoroscopeL497 | 映射-分宫制历史 | 8x2 | 映射表 B：分宫制与图表形式演进 / 
+Griffin盗窃卜卦 | 映射-12星座方位 | 14x2 | 映射表 A：失物在屋内位置——1 / 
+Griffin盗窃卜卦 | 映射-土星12星座相貌 | 14x2 | 映射表 B：贼之相貌——土星在1 / 
+Griffin盗窃卜卦 | 映射-行星互置相貌 | 8x2 | 映射表 C：贼之相貌——行星互置 / 
+Griffin盗窃卜卦 | 映射-牲畜方向判据 | 13x2 | 映射表 D：走失牲畜方向/地形判 / 
+IbnEzra120 | 映射-行星状态 | 26x4 | 映射表 A：行星状态 → 人像比 /  /  / 
+IbnEzra120 | 映射-12宫含义 | 14x3 | 映射表 B：12 宫 → 人像比 /  / 
+IbnEzra120 | 映射-相位含义 | 14x5 | 映射表 C：相位 → 含义与吉凶 /  /  /  / 
+Kepler相位和谐论 | 映射-相位音程 | 14x5 | 映射表 A：相位-角度-音乐音程 /  /  /  / 
+Kepler相位和谐论 | 映射-相位史 | 6x2 | 映射表 B：相位体系演进 / 
+Lilly基础教程卷 | 对冲座表 | 7x2 | 星座 / 对冲星座
+Lilly基础教程卷 | 四体液表 | 5x6 | 气质 / 体液 / 排泄 / 性质 / 元素 / 行星
+Lilly基础教程卷 | 宫位力量序 | 13x3 | 宫位 / 类别 / 备注
+Lilly基础教程卷 | 宫位颜色表 | 13x3 | 宫位 / Lilly颜色 / Bonatti颜色
+Lilly基础教程卷 | 十二宫总表 | 13x7 | 宫位 / 事项 / 身体 / 共示义星 / 行星喜乐 / 角续果 / 性别
+Lilly基础教程卷 | 宫位象限表 | 5x6 | 象限 / 宫位 / 季节 / 阴阳 / 体液 / 生命阶段
+Lilly基础教程卷 | 行星符号表 | 9x2 | 行星 / 符号
+Lilly星座释义卷 | 星座属性总表 | 13x19 | 符号 / 中文 / 英文 / 元素 / 温度湿度 / 体液 / 阴阳 / 昼夜
+Lilly星座释义卷 | Ptolemy尊贵总表 | 13x9 | 符号 / 星座 / 庙(昼D/夜N) / 擢升度数 / 三分(昼|夜) / 界terms(行星+度数边界) / 面faces(行星+度数边界) / 陷
+Lilly星座释义卷 | 反照配对表 | 7x2 | 配对说明 / —
+Lilly星座释义卷 | 星座属国属城表 | 13x4 | 符号 / 星座 / 属国 / 属城
+Lilly星座释义卷 | 季节象限表 | 5x4 | 季节 / 星座 / 体液 / 性质
+Lilly星座释义卷 | 升降时实测 | 3x3 | 星座 / 升点时长 / 类型
+Lilly相位状态卷 | 容许度双套表 | 8x4 | 行星 / 第一套（Lilly表） / 第二套（历史主流） / 备注
+Lilly相位状态卷 | 相位度数表 | 6x3 | 相位 / 度数 / 说明
+Lilly相位状态卷 | 座间相位表 | 13x9 | 符号 / 星座 / dexter六合 / dexter四分 / dexter三合 / dexter对冲 / sinister六合 / sinister四分
+Lilly相位状态卷 | 不相照表 | 13x3 | 符号 / 星座 / 不相照星座
+Lilly相位状态卷 | 上下行星表 | 3x2 | 类别 / 行星
+Lilly相位状态卷 | 运动状态表 | 4x3 | 状态 / 拉丁名 / 定义
+Lilly行星释义卷 | 行星要素总表 | 8x10 | planet / gender / sect / qualities / element / humour / author / fortune
+Lilly行星释义卷 | 行星运动参数 | 8x9 | planet / avg_daily / slowest / fastest / first_station_da / retrograde_days / second_station_d / zodiac_cycle
+Lilly行星释义卷 | 行星纬度极值 | 8x3 | planet / max_north / max_south
+Lilly行星释义卷 | 行星年数表 | 8x6 | planet / greatest / greater / mean / least / note
+Lilly行星释义卷 | 界terms | 57x4 | planet / sign / start_deg / end_deg
+Lilly行星释义卷 | 面faces | 37x4 | planet / sign / start_deg / end_deg
+Lilly行星释义卷 | 庙陷擢落 | 8x8 | planet / day_house / night_house / exalt / exalt_deg / detriment / fall / fall_deg
+Lilly行星释义卷 | 三分主星 | 5x3 | element / day / night
+Lilly行星释义卷 | 友敌表 | 8x3 | planet / friends / enemies
+Lilly行星释义卷 | 星期天使国家 | 8x7 | planet / day / angel / number / conception_month / age / countries
+Lilly行星释义卷 | 行星颜色 | 8x2 | planet / color
+Lilly行星释义卷 | 星座颜色 | 13x2 | sign / color
+Lilly行星释义卷 | 宫位颜色 | 13x2 | house / color
+Lilly行星释义卷 | 风向表 | 8x2 | planet / wind
+Lilly行星释义卷 | 孕月分配 | 10x3 | month / planet / meaning
+Lilly附录BC书目档案 | 附录B在线复本 | 20x6 | 作者 / 书名 / 世纪 / 语言 / 托管方 / 备注
+Lilly附录BC书目档案 | 供应商清单 | 9x3 | 机构 / 内容 / 网址
+Lilly附录BC书目档案 | 附录C引用文献 | 25x4 | 作者 / 书名 / 版本年份 / 出版信息
+MashallahEclipses | 映射-元素天气映射 | 6x3 | 映射表 A：合相元素-天气映射（ /  / 
+MashallahEclipses | 映射-三大合相 | 5x4 | 映射表 B：三大合相（大/中/小 /  /  / 
+MashallahEclipses | 映射-蚀断要点 | 8x3 | 映射表 C：日月蚀判断要点（第伍 /  / 
+MashallahEclipses | 映射-合相持久性 | 5x2 | 映射表 D：合相/蚀之持久性（M / 
+MashallahReception | 映射-接纳判例 | 7x4 | 映射表 A：接纳判例（第 1 章 /  /  / 
+MashallahReception | 映射-相位质接纳 | 4x2 | 映射表 B：接纳之相位质效果（M / 
+MashallahReception | 映射-吉凶组合 | 5x3 | 映射表 C：吉凶星组合原则（MR /  / 
+MorinCabal12宫 | 映射-四三位一体组 | 14x6 | 映射表 A：四组三位一体（12  /  /  /  /  / 
+MorinCabal12宫 | 映射-宫位per se速查 | 14x3 | 映射表 B：十二宫 per se /  / 
+MorinCabal12宫 | 映射-四角与人生 | 6x5 | 映射表 C：四角 ↔ 人生四阶段 /  /  /  / 
+MorinCabal12宫 | 映射-两种宫位顺序 | 4x3 | 映射表 D：物理序 vs 神秘/ /  / 
+Neve卜卦手稿背景档案 | 手稿谱系 | 6x5 | 抄本 / 图数 / 内容 / 性质 / 备注
+Neve卜卦手稿背景档案 | 作者生平时间线 | 9x2 | 时期 / 事件
+Neve卜卦手稿背景档案 | 案例文档特征 | 9x2 | 特征 / 说明
+Neve卜卦手稿背景档案 | 收藏传承链 | 7x2 | 环节 / 说明
+Palchus海船判例 | 映射-判例复盘 | 9x3 | 映射表 A：判断→应验对照（PL /  / 
+Palchus海船判例 | 映射-技法词汇 | 9x3 | 映射表 B：本判例所用技法词汇（ /  / 
+PtolemyCentiloquium | 映射-定时七法 | 9x3 | 映射表 A：事件之期七法（CE- /  / 
+PtolemyCentiloquium | 映射-蚀效期与月相 | 9x4 | 映射表 B：蚀/月相规则集 /  /  / 
+PtolemyCentiloquium | 映射-月亮医学规则 | 14x3 | 映射表 C：月亮/医药规则集 /  / 
+PtolemyCentiloquium | 映射-死亡方式判据 | 11x3 | 映射表 D：死亡方式判据（CE  /  / 
+PtolemyCentiloquium | 映射-推运与征象 | 10x3 | 映射表 E：推运取法（Direc /  / 
+PtolemyCentiloquium | 映射-合盘规则集 | 8x3 | 映射表 F：合盘/君臣主仆规则集 /  / 
+Schoener尊贵分数 | 映射-强弱分数总表 | 69x3 | 映射表 A：de Montulm /  / 
+Schoener尊贵分数 | 映射-宫位强弱 | 11x3 | 映射表 B：宫位强弱分数（对照角 /  / 
+Schoener尊贵分数 | 映射-Hispalensis五步 | 7x2 | 映射表 C：Johannes H / 
+Sibly历史星图验证集 | 映射-来源 | 5x3 | 映射表 A：Sibly 星图来源 /  / 
+Tetrabiblos世俗卷(BookII) | 映射A-十二宫国家相熟表 | 14x3 | 项目 / 含义 / 备注
+Tetrabiblos世俗卷(BookII) | 映射B-十二宫天气性质表 | 14x3 | 项目 / 含义 / 备注
+Tetrabiblos世俗卷(BookII) | 映射C-行星世俗征象五域表 | 7x3 | 项目 / 含义 / 备注
+Tetrabiblos世俗卷(BookII) | 映射D-蚀色对应表 | 9x3 | 项目 / 含义 / 备注
+Tetrabiblos本命卷(BookIII) | 映射A-续命宫表 | 9x3 | 项目 / 含义 / 备注
+Tetrabiblos本命卷(BookIII) | 映射B-续命主择定表 | 12x3 | 项目 / 含义 / 备注
+Tetrabiblos本命卷(BookIII) | 映射C-行星人体部位表 | 9x3 | 项目 / 含义 / 备注
+Tetrabiblos本命卷(BookIII) | 映射D-七曜出没体型表 | 7x3 | 项目 / 含义 / 备注
+Tetrabiblos本命卷(BookIII) | 映射E-四象限体型表 | 6x3 | 项目 / 含义 / 备注
+Tetrabiblos本命卷(BookIII) | 映射F-星座心性三类表 | 5x3 | 项目 / 含义 / 备注
+Tetrabiblos本命基础卷(BookI) | 映射A-黄道十二宫恒星属性 | 56x3 | 项目 / 含义 / 备注
+Tetrabiblos本命基础卷(BookI) | 映射B-行星宫位昼夜表 | 9x3 | 项目 / 含义 / 备注
+Tetrabiblos本命基础卷(BookI) | 映射C-三分主表 | 6x3 | 项目 / 含义 / 备注
+Tetrabiblos本命基础卷(BookI) | 映射D-擢升落陷表 | 9x3 | 项目 / 含义 / 备注
+Tetrabiblos本命基础卷(BookI) | 映射E-埃及界表(Ashmand) | 15x3 | 项目 / 含义 / 备注
+Tetrabiblos财官婚旅卷(BookIV) | 映射A-行星财富来源表 | 8x3 | 项目 / 含义 / 备注
+Tetrabiblos财官婚旅卷(BookIV) | 映射B-行为主星择定表 | 8x3 | 项目 / 含义 / 备注
+Tetrabiblos财官婚旅卷(BookIV) | 映射C-行为职业表 | 8x3 | 项目 / 含义 / 备注
+Tetrabiblos财官婚旅卷(BookIV) | 映射D-婚配判则表 | 9x3 | 项目 / 含义 / 备注
+Tetrabiblos财官婚旅卷(BookIV) | 映射E-死亡质表 | 8x3 | 项目 / 含义 / 备注
+Tetrabiblos财官婚旅卷(BookIV) | 映射F-七龄时段表 | 9x3 | 项目 / 含义 / 备注
+Valens判例集 | 映射-判例总表 | 17x6 | 映射表 A：Book VII 判 /  /  /  /  / 
+Valens判例集 | 映射-时主分配 | 12x2 | 映射表 B：时主分配规则速查 / 
+Valens判例集 | 映射-均年数 | 9x5 | 映射表 C：均年数（(最大+最小 /  /  /  / 
+Valens判例集 | 映射-判据速查 | 9x3 | 映射表 D：应验判据速查（Boo /  / 
+Valens宫位传递卷 | 映射-十二宫名义 | 15x2 | 映射表 A：十二宫名义（Vale / 
+Valens宫位传递卷 | 映射-日之传递 | 9x2 | 映射表 B：日之传递（Sun d / 
+Valens宫位传递卷 | 映射-月之传递 | 9x2 | 映射表 C：月之传递（Moon  / 
+Valens宫位传递卷 | 映射-上升之传递 | 9x2 | 映射表 D：上升之传递（Asce / 
+Valens宫位传递卷 | 映射-土星之传递 | 9x2 | 映射表 E：土星之传递（Satu / 
+Valens宫位传递卷 | 映射-木星之传递 | 9x2 | 映射表 F：木星之传递（Jupi / 
+Valens宫位传递卷 | 映射-火星之传递 | 9x2 | 映射表 G：火星之传递（Mars / 
+Valens宫位传递卷 | 映射-金星之传递 | 9x2 | 映射表 H：金星之传递（Venu / 
+Valens宫位传递卷 | 映射-水星之传递 | 9x2 | 映射表 I：水星之传递（Merc / 
+Valens宫位传递卷 | 映射-周期表 | 10x5 | 映射表 J：周期表——最小/四分 /  /  /  / 
+Valens宫位传递卷 | 映射-起算点 | 15x2 | 映射表 K：事项-起算点对照（第 / 
+Valens宫位传递卷 | 映射-四福点公式 | 7x3 | 映射表 L：四福点公式（Vale /  / 
+Valens宫位传递卷 | 映射-球序年轮 | 10x4 | 映射表 M：Critodemus /  /  / 
+Valens寿命时主卷 | 映射A-五十界全表 | 61x6 | 星座 / 界序 / 界主 / 度数 / 起度 / 止度
+Valens寿命时主卷 | 映射B-行星月日时数 | 8x8 | 行星 / 月数 / 日数(×30) / 时数(×24) / 1/5法日数(×6) / 1/30法日数 / 1/360法(=1/12月) / ×7分配日
+Valens寿命时主卷 | 映射C-129日分布 | 15x3 | 首分者 / 受分星 / 分配量(日)
+Valens寿命时主卷 | 映射D-危急时刻周期 | 8x5 | 行星 / 周期(年) / 起始年 / 分解 / 频率
+Valens寿命时主卷 | 映射E-表构造 | 11x4 | 类型 / 座/因子 / 数值 / 说明
+Valens寿命时主卷 | 映射F-寿命判例总表 | 28x7 | 例号 / 命例(朝代年份/时辰/klima / 日/月/升星位 / gnomon与修正过程 / 判读结果 / 年数 / 算法来源
+Valens寿命时主卷 | 映射G-十二宫事项 | 13x3 | 宫 / 事项 / 相对视角
+Valens寿命时主卷 | 映射H-历法与杂法 | 9x3 | 类别 / 条目 / 值
+Valens推运卷 | 映射-月之倾斜 | 14x3 | 映射表 A：月之倾斜（Incli /  / 
+Valens推运卷 | 映射-凶点年表 | 80x3 | 映射表 B：凶点年表（1-120 /  / 
+Valens推运卷 | 映射-行星周期参数 | 9x4 | 映射表 C：行星周期参数（每星座 /  /  / 
+Valens推运卷 | 映射-亚分布 | 9x8 | 映射表 D：十年期亚分布（Sub /  /  /  /  /  /  / 
+Valens推运卷 | 映射-等升时星座 | 9x2 | 映射表 E：等升时星座对（同升时 / 
+Valens推运卷 | 映射-行星颜色 | 10x3 | 映射表 F：行星颜色象征（Anc /  / 
+Valens本命判断卷 | 映射-旺点度数 | 9x3 | 映射表 A：旺点（Exaltat /  / 
+Valens本命判断卷 | 映射-界数分配 | 9x5 | 映射表 B：Valens 界制— /  /  /  / 
+Valens本命判断卷 | 映射-界序表 | 6x3 | 映射表 C：界序表（Terms  /  / 
+Valens本命判断卷 | 映射-行星周期 | 10x4 | 映射表 D：行星周期——最小/平 /  /  / 
+Valens本命判断卷 | 映射-临界年表 | 14x4 | 映射表 E：临界年表——凶星对福 /  /  / 
+Valens本命判断卷 | 映射-派别表 | 6x4 | 映射表 F：星之派别（Sects /  /  / 
+Valens本命总论卷 | 映射A-七曜本质 | 9x6 | 映射表 A：七曜本质总表（第4层 /  /  /  /  / 
+Valens本命总论卷 | 映射B-行运吉凶 | 9x4 | 映射表 B：行运吉凶表（VE-0 /  /  / 
+Valens本命总论卷 | 映射C-三角宫主 | 6x5 | 映射表 C：三角宫主表（VE-0 /  /  /  / 
+Valens本命总论卷 | 映射D-十二宫释义 | 14x3 | 映射表 D：十二宫名义+判读要点 /  / 
+Valens本命总论卷 | 映射E-双星组合 | 21x3 | 映射表 E：双星组合 19 对（ /  / 
+Valens本命总论卷 | 映射F-三星组合 | 34x2 | 映射表 F：三星组合 32 组（ / 
+Valens本命总论卷 | 映射G-伤病部位 | 4x13 | 映射表 G：伤病部位双表（VE- /  /  /  /  /  /  / 
+Valens本命总论卷 | 映射H-星座伤病 | 14x3 | 映射表 H：星座伤病表（VE-0 /  / 
+Valens本命总论卷 | 映射I-星座被毁暴死 | 14x4 | 映射表 I：星座被毁表（VE-0 /  /  / 
+Valens本命总论卷 | 映射J-月相 | 13x4 | 映射表 J：月之十一相（VE-0 /  /  / 
+Valens本命总论卷 | 映射K-受孕因子 | 15x3 | 映射表 K：受孕因子表（VE-0 /  / 
+Valens本命总论卷 | 映射L-上升算法 | 10x3 | 映射表 L：上升/MC/时数算法 /  / 
+推运体系 | 映射-小限年龄对应 | 14x3 | 映射表 A：小限——年龄与宫位对 /  / 
+推运体系 | 映射-预测方法速查 | 12x3 | 映射表 B：预测方法速查表 /  / 

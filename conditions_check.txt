@@ -1,0 +1,30 @@
+conditions count: 12
+ 太阳 — — R=N sect=失时 果宫
+    - 太阳为盘主光源，不判日关系
+    - sect 失时（夜生）
+ 月亮 free 东 R=N sect=得时 续宫
+    - 离日102.9° 自主
+    - 东出(日之后102.9°，Dorotheus 阈值0°) 偏热主动
+ 水星 free 日芒间 R=N sect=随处境 续宫
+    - 离日18.7° 自主
+    - 距日18.7°未达东出阈值，日芒间不计
+ 金星 free 东 R=N sect=得时 续宫
+    - 离日35.4° 自主
+    - 东出(日之后35.4°，Dorotheus 阈值15°) 偏热主动
+ 火星 free 东 R=N sect=得时 果宫
+    - 离日73.0° 自主
+    - 东出(日之后73.0°，Dorotheus 阈值18°) 偏热主动
+ 木星 free 西 R=N sect=失时 果宫
+    - 离日22.0° 自主
+    - 西没(日之前) 偏冷内敛
+ 土星 free 东 R=Y sect=随处境 角宫
+    - 离日149.8° 自主
+    - 东出(日之后149.8°，Dorotheus 阈值15°) 偏热主动
+termsCompare:
+ 太阳 度23.8 埃及界=土星 Valens=火星 match=False
+ 月亮 度10.9 埃及界=木星 Valens=金星 match=False
+ 水星 度5.1 埃及界=水星 Valens=水星 match=True
+ 金星 度18.4 埃及界=木星 Valens=木星 match=True
+ 火星 度10.8 埃及界=金星 Valens=金星 match=True
+ 木星 度15.8 埃及界=水星 Valens=水星 match=True
+ 土星 度24.1 埃及界=火星 Valens=土星 match=False

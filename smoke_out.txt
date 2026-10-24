@@ -1,0 +1,20 @@
+
+[render:2] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+RENDER_REPORT [{"type":"本命","err":null,"svgLen":15450,"rulesBlocks":20,"rulesProfile":7,"rulesMeta":"规则库 1965 条带标签 / 整盘命中 73 条 · 全文检索覆盖全部 2888 条（含无标签）","condTags":7,"condBlock":true,"info":"盘型：本命  |  chartJd=2448057.6667  |  分宫=Placidus  |  昼/夜=night"},{"type":"天象","err":null,"svgLen":15116,"rulesBlocks":20,"rulesProfile":7,"rulesMeta":"规则库 1965 条带标签 / 整盘命中 73 条 · 全文检索覆盖全部 2888 条（含无标签）","condTags":7,"condBlock":true,"info":"盘型：天象  |  chartJd=2461332.9063  |  分宫=Placidus  |  昼/夜=day"}]
+HORARY_REPORT {"verdict":"倾向败（-8）","factors":9,"special":1}
+PROGRESSION_REPORT {"firdariaMain":"月亮","firdariaStart":31,"profHouse":1,"profLord":"金星","subLen":7}
+ELECTION_REPORT {"verdict":"宜（吉格较多）","score":7,"factors":11,"unscored":4,"synergy":"3/0"}
+SYNASTRY_REPORT {"verdict":"中性","score":2,"aspects":22,"lightPairs":2,"ascHits":5}
+MUNDANE_REPORT {"verdict":"中性","score":1,"eclipse":"无蚀（日月无主相位，窗口±15天无真实蚀）","lord":"火星"}
+OVERVIEW_REPORT {"natal":{"score":46,"v":"综合计分汇总（行星条件+偶然尊贵）"},"progress":{"score":0,"v":"主周期 月亮（31-40 岁）· 当前副段 月亮 · 小限 1 宫 金牛"},"election":{"score":4,"v":"宜（吉格较多）"},"mundane":{"score":1,"v":"中性"},"horary":{"score":null,"v":"跳过——需问题/问卦时刻，用卜卦块单独算"},"synastry":{"score":null,"v":"跳过——需第二盘，用合盘块单独算"}}
+DAVISON_REPORT {"mid":"1991-4-27 2","asc":"巨蟹"}
+MARRIAGE_REPORT {"verdict":"中性","score":0,"readings":6,"points":9,"unscored":5}
+RULES_SEARCH_REPORT {"q1":9,"q2":22,"sample":"CE-094|untag"}
+SMOKE_OK

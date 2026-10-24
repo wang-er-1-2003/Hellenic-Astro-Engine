@@ -1,0 +1,20 @@
+{
+  "name": "Ptolemy 界（Tetrabiblos · Ashmand 英译本）",
+  "source": "https://www.sacred-texts.com/astro/ptb/ptb27.htm",
+  "note": "Ashmand 译本含双重权利共管段（如狮子段1=木/土 0-6°、天蝎段2=金/木 6-14°）；每段 planets 数组按原文顺序列出共管行星，不作单主简化。与流通单主版（astrologycom，实为埃及界）有真实差异：双子/巨蟹/狮子/天蝎/摩羯等座。",
+  "signs": ["白羊","金牛","双子","巨蟹","狮子","处女","天秤","天蝎","射手","摩羯","水瓶","双鱼"],
+  "terms": [
+    [{"planets":["木星"],"start":0,"end":6},{"planets":["金星"],"start":6,"end":14},{"planets":["水星"],"start":14,"end":21},{"planets":["火星"],"start":21,"end":26},{"planets":["土星"],"start":26,"end":30}],
+    [{"planets":["金星"],"start":0,"end":8},{"planets":["水星"],"start":8,"end":15},{"planets":["木星"],"start":15,"end":22},{"planets":["土星"],"start":22,"end":26},{"planets":["火星"],"start":26,"end":30}],
+    [{"planets":["水星"],"start":0,"end":7},{"planets":["木星"],"start":7,"end":13},{"planets":["金星"],"start":13,"end":20},{"planets":["火星"],"start":20,"end":26},{"planets":["土星"],"start":26,"end":30}],
+    [{"planets":["火星"],"start":0,"end":6},{"planets":["水星","木星"],"start":6,"end":13},{"planets":["木星","水星"],"start":13,"end":20},{"planets":["金星"],"start":20,"end":27},{"planets":["土星"],"start":27,"end":30}],
+    [{"planets":["木星","土星"],"start":0,"end":6},{"planets":["水星"],"start":6,"end":13},{"planets":["土星","金星"],"start":13,"end":19},{"planets":["木星"],"start":19,"end":25},{"planets":["火星"],"start":25,"end":30}],
+    [{"planets":["水星"],"start":0,"end":7},{"planets":["金星"],"start":7,"end":13},{"planets":["木星"],"start":13,"end":18},{"planets":["土星"],"start":18,"end":24},{"planets":["火星"],"start":24,"end":30}],
+    [{"planets":["土星"],"start":0,"end":6},{"planets":["金星"],"start":6,"end":11},{"planets":["水星","木星"],"start":11,"end":19},{"planets":["木星","水星"],"start":19,"end":24},{"planets":["火星"],"start":24,"end":30}],
+    [{"planets":["火星"],"start":0,"end":6},{"planets":["金星","木星"],"start":6,"end":14},{"planets":["木星","金星"],"start":14,"end":21},{"planets":["水星"],"start":21,"end":27},{"planets":["土星"],"start":27,"end":30}],
+    [{"planets":["木星"],"start":0,"end":8},{"planets":["金星"],"start":8,"end":14},{"planets":["水星"],"start":14,"end":19},{"planets":["土星"],"start":19,"end":25},{"planets":["火星"],"start":25,"end":30}],
+    [{"planets":["金星"],"start":0,"end":6},{"planets":["水星"],"start":6,"end":12},{"planets":["木星"],"start":12,"end":19},{"planets":["土星","火星"],"start":19,"end":25},{"planets":["火星","土星"],"start":25,"end":30}],
+    [{"planets":["土星"],"start":0,"end":6},{"planets":["水星"],"start":6,"end":12},{"planets":["金星"],"start":12,"end":20},{"planets":["木星"],"start":20,"end":25},{"planets":["火星"],"start":25,"end":30}],
+    [{"planets":["金星"],"start":0,"end":8},{"planets":["木星"],"start":8,"end":14},{"planets":["水星"],"start":14,"end":20},{"planets":["火星"],"start":20,"end":26},{"planets":["土星"],"start":26,"end":30}]
+  ]
+}

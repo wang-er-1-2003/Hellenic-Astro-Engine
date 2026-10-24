@@ -1,0 +1,757 @@
+﻿
+{
+  "meta": {
+    "type": "progressed",
+    "input": {
+      "year": 1990,
+      "month": 6,
+      "day": 15,
+      "hour": 12,
+      "minute": 0,
+      "tzOffsetHours": 8,
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "houseSystem": "P",
+      "type": "progressed",
+      "years": 35,
+      "orbSet": "modern",
+      "utHour": 4
+    },
+    "natalJd": 2448057.6666666665,
+    "chartJd": 2448092.6666666665,
+    "houseJd": 2448057.6666666665,
+    "years": 35,
+    "isDay": "night",
+    "engine": {
+      "swisseph": "2.10.03",
+      "note": "Swiss Ephemeris wasm 移植"
+    }
+  },
+  "planets": [
+    {
+      "idx": 0,
+      "en": "Sun",
+      "zh": "太阳",
+      "glyph": "☉",
+      "lon": 117.20007245694455,
+      "lat": 0.00011300605804083543,
+      "dist": 1.01616580008131,
+      "speed": 0.9548632993903361,
+      "retrograde": false,
+      "position": {
+        "signIdx": 3,
+        "signEn": "Cancer",
+        "signZh": "巨蟹",
+        "signGlyph": "♋",
+        "signDeg": 27.2,
+        "text": "巨蟹 27°12′",
+        "raw": 117.20007245694455
+      },
+      "house": 10,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 1,
+      "en": "Moon",
+      "zh": "月亮",
+      "glyph": "☽",
+      "lon": 90.77575012710732,
+      "lat": 3.140857667220458,
+      "dist": 0.0024384729690035815,
+      "speed": 14.62419102045612,
+      "retrograde": false,
+      "position": {
+        "signIdx": 3,
+        "signEn": "Cancer",
+        "signZh": "巨蟹",
+        "signGlyph": "♋",
+        "signDeg": 0.7833333333333333,
+        "text": "巨蟹 0°47′",
+        "raw": 90.77575012710732
+      },
+      "house": 9,
+      "essential": [
+        {
+          "dignity": "domicile",
+          "weight": 5,
+          "detail": "庙"
+        },
+        {
+          "dignity": "face",
+          "weight": 1,
+          "detail": "面(<30°)"
+        }
+      ],
+      "dignityScore": 6
+    },
+    {
+      "idx": 2,
+      "en": "Mercury",
+      "zh": "水星",
+      "glyph": "☿",
+      "lon": 135.20010531951,
+      "lat": 1.5106311803049182,
+      "dist": 1.2103198648470568,
+      "speed": 1.7340682301208006,
+      "retrograde": false,
+      "position": {
+        "signIdx": 4,
+        "signEn": "Leo",
+        "signZh": "狮子",
+        "signGlyph": "♌",
+        "signDeg": 15.2,
+        "text": "狮子 15°12′",
+        "raw": 135.20010531951
+      },
+      "house": 10,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 3,
+      "en": "Venus",
+      "zh": "金星",
+      "glyph": "♀",
+      "lon": 90.01605168271983,
+      "lat": -0.7534263334729231,
+      "dist": 1.4573854898802605,
+      "speed": 1.202788820201417,
+      "retrograde": false,
+      "position": {
+        "signIdx": 3,
+        "signEn": "Cancer",
+        "signZh": "巨蟹",
+        "signGlyph": "♋",
+        "signDeg": 0.016666666666666666,
+        "text": "巨蟹 0°1′",
+        "raw": 90.01605168271983
+      },
+      "house": 9,
+      "essential": [
+        {
+          "dignity": "triplicity",
+          "weight": 3,
+          "detail": "三分主(夜)"
+        },
+        {
+          "dignity": "term",
+          "weight": 2,
+          "detail": "界(<27°)"
+        },
+        {
+          "dignity": "face",
+          "weight": 1,
+          "detail": "面(<10°)"
+        }
+      ],
+      "dignityScore": 6
+    },
+    {
+      "idx": 4,
+      "en": "Mars",
+      "zh": "火星",
+      "glyph": "♂",
+      "lon": 35.04309688466619,
+      "lat": -2.059818988500646,
+      "dist": 1.0884706887194875,
+      "speed": 0.6589513040722388,
+      "retrograde": false,
+      "position": {
+        "signIdx": 1,
+        "signEn": "Taurus",
+        "signZh": "金牛",
+        "signGlyph": "♉",
+        "signDeg": 5.05,
+        "text": "金牛 5°3′",
+        "raw": 35.04309688466619
+      },
+      "house": 7,
+      "essential": [
+        {
+          "dignity": "triplicity",
+          "weight": 3,
+          "detail": "三分主(夜)"
+        },
+        {
+          "dignity": "term",
+          "weight": 2,
+          "detail": "界(<30°)"
+        },
+        {
+          "dignity": "detriment",
+          "weight": -5,
+          "detail": "陷"
+        }
+      ],
+      "dignityScore": 0
+    },
+    {
+      "idx": 5,
+      "en": "Jupiter",
+      "zh": "木星",
+      "glyph": "♃",
+      "lon": 113.5963125193883,
+      "lat": 0.23675533756368167,
+      "dist": 6.237140229648891,
+      "speed": 0.2242079404130175,
+      "retrograde": false,
+      "position": {
+        "signIdx": 3,
+        "signEn": "Cancer",
+        "signZh": "巨蟹",
+        "signGlyph": "♋",
+        "signDeg": 23.6,
+        "text": "巨蟹 23°36′",
+        "raw": 113.5963125193883
+      },
+      "house": 9,
+      "essential": [
+        {
+          "dignity": "exaltation",
+          "weight": 4,
+          "detail": "擢(15°)"
+        }
+      ],
+      "dignityScore": 4
+    },
+    {
+      "idx": 6,
+      "en": "Saturn",
+      "zh": "土星",
+      "glyph": "♄",
+      "lon": 291.6189288731316,
+      "lat": 0.06743375226647402,
+      "dist": 8.997933968026327,
+      "speed": -0.07351913243235164,
+      "retrograde": true,
+      "position": {
+        "signIdx": 9,
+        "signEn": "Capricorn",
+        "signZh": "摩羯",
+        "signGlyph": "♑",
+        "signDeg": 21.616666666666667,
+        "text": "摩羯 21°37′",
+        "raw": 291.6189288731316
+      },
+      "house": 3,
+      "essential": [
+        {
+          "dignity": "domicile",
+          "weight": 5,
+          "detail": "庙"
+        },
+        {
+          "dignity": "term",
+          "weight": 2,
+          "detail": "界(<30°)"
+        }
+      ],
+      "dignityScore": 7
+    },
+    {
+      "idx": 7,
+      "en": "Uranus",
+      "zh": "天王星",
+      "glyph": "♅",
+      "lon": 276.7901531658538,
+      "lat": -0.32839850673591,
+      "dist": 18.46021999748301,
+      "speed": -0.0370947738871631,
+      "retrograde": true,
+      "position": {
+        "signIdx": 9,
+        "signEn": "Capricorn",
+        "signZh": "摩羯",
+        "signGlyph": "♑",
+        "signDeg": 6.783333333333333,
+        "text": "摩羯 6°47′",
+        "raw": 276.7901531658538
+      },
+      "house": 3,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 8,
+      "en": "Neptune",
+      "zh": "海王星",
+      "glyph": "♆",
+      "lon": 282.79859367920375,
+      "lat": 0.8712916652016682,
+      "dist": 29.220731113227444,
+      "speed": -0.025947646775022273,
+      "retrograde": true,
+      "position": {
+        "signIdx": 9,
+        "signEn": "Capricorn",
+        "signZh": "摩羯",
+        "signGlyph": "♑",
+        "signDeg": 12.8,
+        "text": "摩羯 12°48′",
+        "raw": 282.79859367920375
+      },
+      "house": 3,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 9,
+      "en": "Pluto",
+      "zh": "冥王星",
+      "glyph": "♇",
+      "lon": 224.97813758408108,
+      "lat": 15.570383408560918,
+      "dist": 29.345417920240706,
+      "speed": -0.003250309617915139,
+      "retrograde": true,
+      "position": {
+        "signIdx": 7,
+        "signEn": "Scorpio",
+        "signZh": "天蝎",
+        "signGlyph": "♏",
+        "signDeg": 14.983333333333333,
+        "text": "天蝎 14°59′",
+        "raw": 224.97813758408108
+      },
+      "house": 1,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 10,
+      "en": "Mean Node",
+      "zh": "平均月交点",
+      "glyph": "☊",
+      "lon": 307.8626036113741,
+      "lat": 0,
+      "dist": 0.0025695552897999903,
+      "speed": -0.05290143520878646,
+      "retrograde": true,
+      "position": {
+        "signIdx": 10,
+        "signEn": "Aquarius",
+        "signZh": "宝瓶",
+        "signGlyph": "♒",
+        "signDeg": 7.866666666666667,
+        "text": "宝瓶 7°52′",
+        "raw": 307.8626036113741
+      },
+      "house": 4,
+      "essential": [],
+      "dignityScore": 0
+    },
+    {
+      "idx": 11,
+      "en": "True Node",
+      "zh": "真月交点",
+      "glyph": "☊",
+      "lon": 307.2831555021689,
+      "lat": 0,
+      "dist": 0.0026630920884546166,
+      "speed": -0.017712723271905834,
+      "retrograde": true,
+      "position": {
+        "signIdx": 10,
+        "signEn": "Aquarius",
+        "signZh": "宝瓶",
+        "signGlyph": "♒",
+        "signDeg": 7.283333333333333,
+        "text": "宝瓶 7°17′",
+        "raw": 307.2831555021689
+      },
+      "house": 4,
+      "essential": [],
+      "dignityScore": 0
+    }
+  ],
+  "houses": {
+    "system": "P",
+    "systemName": "Placidus",
+    "basedOn": "natal",
+    "cusps": [
+      {
+        "signIdx": 5,
+        "signEn": "Virgo",
+        "signZh": "处女",
+        "signGlyph": "♍",
+        "signDeg": 21.683333333333334,
+        "text": "处女 21°41′",
+        "raw": 171.67679212259682
+      },
+      {
+        "signIdx": 6,
+        "signEn": "Libra",
+        "signZh": "天秤",
+        "signGlyph": "♎",
+        "signDeg": 17.15,
+        "text": "天秤 17°9′",
+        "raw": 197.15255453656414
+      },
+      {
+        "signIdx": 7,
+        "signEn": "Scorpio",
+        "signZh": "天蝎",
+        "signGlyph": "♏",
+        "signDeg": 17.133333333333333,
+        "text": "天蝎 17°8′",
+        "raw": 227.1334527363673
+      },
+      {
+        "signIdx": 8,
+        "signEn": "Sagittarius",
+        "signZh": "射手",
+        "signGlyph": "♐",
+        "signDeg": 20.433333333333334,
+        "text": "射手 20°26′",
+        "raw": 260.4329952883861
+      },
+      {
+        "signIdx": 9,
+        "signEn": "Capricorn",
+        "signZh": "摩羯",
+        "signGlyph": "♑",
+        "signDeg": 24.05,
+        "text": "摩羯 24°3′",
+        "raw": 294.04524355097885
+      },
+      {
+        "signIdx": 10,
+        "signEn": "Aquarius",
+        "signZh": "宝瓶",
+        "signGlyph": "♒",
+        "signDeg": 24.866666666666667,
+        "text": "宝瓶 24°52′",
+        "raw": 324.865331280123
+      },
+      {
+        "signIdx": 11,
+        "signEn": "Pisces",
+        "signZh": "双鱼",
+        "signGlyph": "♓",
+        "signDeg": 21.683333333333334,
+        "text": "双鱼 21°41′",
+        "raw": 351.6767921225968
+      },
+      {
+        "signIdx": 0,
+        "signEn": "Aries",
+        "signZh": "白羊",
+        "signGlyph": "♈",
+        "signDeg": 17.15,
+        "text": "白羊 17°9′",
+        "raw": 17.15255453656414
+      },
+      {
+        "signIdx": 1,
+        "signEn": "Taurus",
+        "signZh": "金牛",
+        "signGlyph": "♉",
+        "signDeg": 17.133333333333333,
+        "text": "金牛 17°8′",
+        "raw": 47.1334527363673
+      },
+      {
+        "signIdx": 2,
+        "signEn": "Gemini",
+        "signZh": "双子",
+        "signGlyph": "♊",
+        "signDeg": 20.433333333333334,
+        "text": "双子 20°26′",
+        "raw": 80.43299528838612
+      },
+      {
+        "signIdx": 3,
+        "signEn": "Cancer",
+        "signZh": "巨蟹",
+        "signGlyph": "♋",
+        "signDeg": 24.05,
+        "text": "巨蟹 24°3′",
+        "raw": 114.04524355097885
+      },
+      {
+        "signIdx": 4,
+        "signEn": "Leo",
+        "signZh": "狮子",
+        "signGlyph": "♌",
+        "signDeg": 24.866666666666667,
+        "text": "狮子 24°52′",
+        "raw": 144.86533128012297
+      }
+    ],
+    "cuspsRaw": [
+      171.67679212259682,
+      197.15255453656414,
+      227.1334527363673,
+      260.4329952883861,
+      294.04524355097885,
+      324.865331280123,
+      351.6767921225968,
+      17.15255453656414,
+      47.1334527363673,
+      80.43299528838612,
+      114.04524355097885,
+      144.86533128012297
+    ],
+    "angles": {
+      "asc": 171.67679212259682,
+      "mc": 80.43299528838612,
+      "dc": 351.6767921225968,
+      "ic": 260.4329952883861,
+      "ascF": {
+        "signIdx": 5,
+        "signEn": "Virgo",
+        "signZh": "处女",
+        "signGlyph": "♍",
+        "signDeg": 21.683333333333334,
+        "text": "处女 21°41′",
+        "raw": 171.67679212259682
+      },
+      "mcF": {
+        "signIdx": 2,
+        "signEn": "Gemini",
+        "signZh": "双子",
+        "signGlyph": "♊",
+        "signDeg": 20.433333333333334,
+        "text": "双子 20°26′",
+        "raw": 80.43299528838612
+      },
+      "dcF": {
+        "signIdx": 11,
+        "signEn": "Pisces",
+        "signZh": "双鱼",
+        "signGlyph": "♓",
+        "signDeg": 21.683333333333334,
+        "text": "双鱼 21°41′",
+        "raw": 351.6767921225968
+      },
+      "icF": {
+        "signIdx": 8,
+        "signEn": "Sagittarius",
+        "signZh": "射手",
+        "signGlyph": "♐",
+        "signDeg": 20.433333333333334,
+        "text": "射手 20°26′",
+        "raw": 260.4329952883861
+      }
+    }
+  },
+  "aspects": [
+    {
+      "p1": 0,
+      "p2": 5,
+      "aspect": "Conjunction",
+      "aspectZh": "合相",
+      "glyph": "☌",
+      "angle": 0,
+      "orbUsed": 3.603759937556248,
+      "orb": 8,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 0,
+      "p2": 6,
+      "aspect": "Opposition",
+      "aspectZh": "对冲",
+      "glyph": "☍",
+      "angle": 180,
+      "orbUsed": 5.5811435838129455,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 1,
+      "p2": 3,
+      "aspect": "Conjunction",
+      "aspectZh": "合相",
+      "glyph": "☌",
+      "angle": 0,
+      "orbUsed": 0.7596984443874817,
+      "orb": 8,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 1,
+      "p2": 4,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 4.267346757558876,
+      "orb": 6,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 1,
+      "p2": 7,
+      "aspect": "Opposition",
+      "aspectZh": "对冲",
+      "glyph": "☍",
+      "angle": 180,
+      "orbUsed": 6.0144030387464795,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 2,
+      "p2": 9,
+      "aspect": "Square",
+      "aspectZh": "刑",
+      "glyph": "□",
+      "angle": 90,
+      "orbUsed": 0.2219677354289047,
+      "orb": 7,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 2,
+      "p2": 10,
+      "aspect": "Opposition",
+      "aspectZh": "对冲",
+      "glyph": "☍",
+      "angle": 180,
+      "orbUsed": 7.337501708135903,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 2,
+      "p2": 11,
+      "aspect": "Opposition",
+      "aspectZh": "对冲",
+      "glyph": "☍",
+      "angle": 180,
+      "orbUsed": 7.916949817341106,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 3,
+      "p2": 4,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 5.027045201946358,
+      "orb": 6,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 3,
+      "p2": 7,
+      "aspect": "Opposition",
+      "aspectZh": "对冲",
+      "glyph": "☍",
+      "angle": 180,
+      "orbUsed": 6.774101483133961,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 4,
+      "p2": 7,
+      "aspect": "Trine",
+      "aspectZh": "三合",
+      "glyph": "△",
+      "angle": 120,
+      "orbUsed": 1.7470562811875823,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 4,
+      "p2": 8,
+      "aspect": "Trine",
+      "aspectZh": "三合",
+      "glyph": "△",
+      "angle": 120,
+      "orbUsed": 7.7554967945375495,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 4,
+      "p2": 10,
+      "aspect": "Square",
+      "aspectZh": "刑",
+      "glyph": "□",
+      "angle": 90,
+      "orbUsed": 2.819506726707914,
+      "orb": 7,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 4,
+      "p2": 11,
+      "aspect": "Square",
+      "aspectZh": "刑",
+      "glyph": "□",
+      "angle": 90,
+      "orbUsed": 2.2400586175027115,
+      "orb": 7,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 5,
+      "p2": 6,
+      "aspect": "Opposition",
+      "aspectZh": "对冲",
+      "glyph": "☍",
+      "angle": 180,
+      "orbUsed": 1.9773836462566976,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 7,
+      "p2": 8,
+      "aspect": "Conjunction",
+      "aspectZh": "合相",
+      "glyph": "☌",
+      "angle": 0,
+      "orbUsed": 6.008440513349967,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    },
+    {
+      "p1": 8,
+      "p2": 9,
+      "aspect": "Sextile",
+      "aspectZh": "六合",
+      "glyph": "⚹",
+      "angle": 60,
+      "orbUsed": 2.1795439048773346,
+      "orb": 6,
+      "applying": true,
+      "separating": false
+    },
+    {
+      "p1": 10,
+      "p2": 11,
+      "aspect": "Conjunction",
+      "aspectZh": "合相",
+      "glyph": "☌",
+      "angle": 0,
+      "orbUsed": 0.5794481092052024,
+      "orb": 8,
+      "applying": false,
+      "separating": true
+    }
+  ]
+}

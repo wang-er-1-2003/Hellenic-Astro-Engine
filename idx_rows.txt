@@ -1,0 +1,77 @@
+== 索引总表 sheet（48x12）== 列头+前15行:
+  R1: 序号 | 规则库文件名 | 编号体系 | 作者 | 时代 | 套系 | 主方法类 | 次方法类 | 引擎模块 | 规则条数 | 映射/子表数 | 备注
+  R2: 1 | AlBiruni阿拉伯点 | AB-001~014 | Al-Biruni | 11世纪 | 单本 | 点数 |  | 第3层数值 | 15 | 6 | 阿拉伯点公式全表约159式
+  R3: 2 | Dariot卜卦总纲 | DART-01~44 | Dariot | 16世纪1557/1583 | 单本 | 卜卦 | 基础 | 第3层+第4层 | 44 | 9 | 完整卜卦引擎判据链
+  R4: 3 | Gadbury偷窃失物 | GD-001~044 | Gadbury | 17世纪 | 单本 | 卜卦 | 专项 | 第4层 | 45 | 5 | 偷窃/逃亡/走失/应期
+  R5: 4 | GreekHoroscopeL497 | GH-001~019 | Houlding研究 | 2007研究/497AD | 单本 | 验证 | 排盘 | 第3层+验证 | 20 | 2 | Porphyry分宫+L497回测盘
+  R6: 5 | Griffin盗窃卜卦 | GF-001~139 | Griffin | 17世纪1665 | 单本 | 卜卦 | 专项 | 第4层 | 140 | 4 | 盗窃/失物/贼貌/牲畜（OCR库）
+  R7: 6 | IbnEzra120 | IE-001~120 | Ibn Ezra | 12世纪 | 单本 | 本命 | 格言 | 第4层 | 121 | 3 | 120格言/行星状态/宫位
+  R8: 7 | Kepler相位和谐论 | KH-001~016 | Kepler/Plant研究 | 17世纪 | 单本 | 相位 | 理论 | 第3层 | 17 | 2 | 相位音程比/次级相位定性
+  R9: 8 | MorinCabal12宫 | CA-001~020 | Morin/Wharton译 | 17世纪1683 | 单本 | 基础 | 宫位理论 | 第4层 | 21 | 4 | 12宫卡巴拉/四组三位一体
+  R10: 9 | Neve卜卦手稿背景档案 | NEV-01~14 | Neve/Ward考据 | 17世纪1635-42 | 单本 | 档案 | 卜卦 | 档案 | 14 | 4 | MS Ashmole 209 背景（判词不可
+  R11: 10 | Palchus海船判例 | PL-001~012 | Palchus/Garnett译 | 5世纪479AD | 单本 | 卜卦 | 判例 | 验证 | 13 | 2 | 现存最早katarche判例之一
+  R12: 11 | PtolemyCentiloquium | CE-001~100(缺30) | 托名Ptolemy/Coley译 | 中世纪 | 单本 | 本命 | 兼摄 | 第4层 | 120 | 4 | 百言格言集（源出Clavis第20章）
+  R13: 12 | Schoener尊贵分数 | SD-001~070 | Schoener | 16世纪1539 | 单本 | 尊贵 | 数值 | 第3层数值 | 71 | 3 | 行星强弱量化评分（Montulmo系）
+  R14: 13 | Sibly历史星图验证集 | SB-001~034 | Sibly | 18世纪 | 单本 | 验证 |  | 验证 | 35 | 1 | 34历史人物星图用例目录
+  R15: 14 | 推运体系 | PM/SP/PF | 多作者合编 | 现代2016 | 单本 | 推运 |  | 第3层 | 50 | 2 | 次限/小限/日返/太阳弧等教学合编
+  R16: 15 | Bonatti146 | BO-001~146 | Bonatti/Coley英译 | 13世纪/1675 | Bonatti | 卜卦 | 本命/择时 | 第3层+第4层 | 160 | 8 | 146 Considerations 判断总
+
+== 套系清单（10x5）==:
+  套系 | 作者/来源 | 时代 | 卷数 | 包含卷
+  Lilly | William Lilly 系（Christian Astrology 及 Li | 17世纪 1647/1675 | 6 | Lilly基础教程卷 / Lilly行星释义卷 / Lilly星座释义卷 / L
+  Clavis | Henry Coley 系（Clavis Astrologiae Elimata | 17世纪 1676 | 8 | Clavis基础教义卷 / Clavis卜卦判例卷 / Clavis十二宫问事判
+  Dorotheus | Dorotheus of Sidon 系（Carmen Astrologicum | 1世纪（Pingree 1976英译） | 4 | Dorotheus卷一 / Dorotheus卷二 / Dorotheus卷三 
+  Tetrabiblos | Ptolemy 系（Tetrabiblos 四书） | 2世纪 | 4 | Tetrabiblos本命基础卷 / Tetrabiblos世俗卷 / Tetr
+  Valens | Vettius Valens 系（Anthologies 九书） | 2世纪（Riley英译） | 6 | Valens本命总论卷 / Valens本命判断卷 / Valens宫位传递卷 
+  Bonatti | Bonatti 系 | 13世纪（Coley 1675/Dykes 2007英译） | 2 | Bonatti146 / Bonatti4宫择时
+  Masha'allah | Masha'allah 系 | 8世纪 | 2 | MashallahReception / MashallahEclipses
+  Cardano | Cardano 系 | 16世纪（2009版权译本转述） | 1 | Cardano箴言第一卷
+  单本 | 独立单本/专题 | 跨时代 | 14 | AlBiruni阿拉伯点 / Dariot卜卦总纲 / Gadbury偷窃失物 
+
+== 方法分类（12x4）==:
+  方法类 | 说明 | 归属卷数 | 归属卷
+  本命判断(Natal) | 行星/星座/宫位/相位释义、hyleg寿期、财官婚旅——本命盘解读 | 12 | Dorotheus卷一 / Dorotheus卷二 / Tetrabiblos本
+  卜卦判断(Horary) | 问事判断：指认征象星/成事四法/应期/偷窃失物等专项 | 9 | Dariot卜卦总纲 / Bonatti146 / Gadbury偷窃失物 / 
+  择时(Elections) | 择日选时：建屋/种植/开河等事项时点选择 | 2 | Bonatti4宫择时 / Clavis择时世俗卷
+  推运与时主(Predictive) | 方向/大限小限/次限/日返/年主/时主传递——预测方法群 | 10 | Dorotheus卷三 / Dorotheus卷三注释 / Valens推运卷 
+  世俗与天象(Mundane) | 日月蚀/行星合相/年主/天气/国家地域 | 3 | MashallahEclipses / Clavis世俗蚀兆卷 / Tetrab
+  阿拉伯点(Lots) | 福点/婚点/病点等约159式公式（跨域技术） | 3 | AlBiruni阿拉伯点 / Dorotheus卷一 / Valens宫位传递卷
+  尊贵与强弱(Dignity) | 庙/擢/三分/界/面计分与强弱数值（跨域技术） | 4 | Schoener尊贵分数 / Tetrabiblos本命基础卷 / Lilly星
+  相位与和谐(Aspects) | 相位定义/容许度/音程比/应用分离（跨域技术） | 3 | Lilly相位状态卷 / Kepler相位和谐论 / Clavis基础教义卷
+  基础与教义(Foundations) | 符号/星历/起盘/术语/十二宫/宫位理论 | 5 | Tetrabiblos本命基础卷 / Clavis基础教义卷 / Lilly基础
+  验证用例(Verification) | 历史盘/判例/人物星图回测基准 | 5 | GreekHoroscopeL497 / Sibly历史星图验证集 / Palc
+  档案与书目(Archive·非方法) | 手稿背景/书目目录（不作判断规则） | 2 | Neve卜卦手稿背景档案 / Lilly附录BC书目档案
+
+== Lilly行星释义卷 规则条目（74x12）列头+前4行:
+  R1: rule_id | original_text | translation | planets | signs | houses | aspects | condition | result | rule_type | confidence | notes
+  R2: LIL-SAT-01 | He is a diurnal planet, cold and dry (being far re | 土星：昼行星，冷而干；忧郁质、土性、阳性、大凶星（Greater Infortune），主孤寂、恶毒 | Saturn |  |  |  |  | 本性定义 | data | high | 要素表：earthly/cold&dry/melancholic
+  R3: LIL-SAT-02 | When well dignified: profound in imagination, in h | 土星得时：想象深沉、行事严峻、言语保留、寡言少予、劳作有耐心、论辩庄重、谋财勤勉、诸行俭朴。 | Saturn |  |  |  | 土星得时 | 德行特征 | data | high | 
+  R4: LIL-SAT-03 | When ill: envious, covetous, jealous and mistrustf | 土星失时：嫉妒、贪婪、多疑、怯懦、卑琐、外饰、迟钝、固执、贬斥女性、隐秘撒谎、怨怼不止。 | Saturn |  |  |  | 土星失时 | 恶行特征 | data | high | 
+  R5: LIL-SAT-04 | His body more cold and dry, of a middle stature; c | 土星体型：中身材、冷干；面色苍白/灰黑/污浊，小眼黑而俯视，宽额、黑粗发、垂大耳、浓眉厚唇鼻、须疏； | Saturn |  |  |  | 土星东出/西没 | 体型修正 | data | high | oriental/occidental=相对太阳的相位（非宫位）
+
+== 庙陷擢落（8x8）==:
+  planet | day_house | night_house | exalt | exalt_deg | detriment | fall | fall_deg
+  土星 | 水瓶 | 摩羯 | 天秤 |  | 巨蟹、狮子 | 白羊 | 
+  木星 | 射手 | 双鱼 | 巨蟹 |  | 双子、处女 | 摩羯 | 
+  火星 | 白羊 | 天蝎 | 摩羯 | 28 | 天秤、金牛 | 巨蟹 | 28
+  太阳 | 狮子 | - | 白羊 | 19 | 水瓶 | 天秤 | 
+  金星 | 金牛 | 天秤 | 双鱼 | 27 | 白羊、天蝎 | 处女 | 27
+  水星 | 双子 | 处女 | 处女 | 15 | 射手、双鱼 | 双鱼 | 
+  月亮 | 巨蟹 | - | 金牛 | 3 | 摩羯 | 天蝎 | 3
+
+== 友敌表（8x3）==:
+  planet | friends | enemies
+  土星 | 木星、太阳、水星 | 火星、金星
+  木星 | 除火星外诸星 | 火星
+  火星 | 仅金星 | 其余诸星
+  太阳 | 除土星外诸星 | 土星
+  金星 | 除土星外诸星 | 土星
+  水星 | 木星、金星、土星 | 其余诸星
+  月亮 | - | 土星、火星
+
+== 三分主星（5x3）==:
+  element | day | night
+  火相（白羊/狮子/射手） | 太阳 | 木星
+  土相（金牛/处女/摩羯） | 金星 | 月亮
+  风相（双子/天秤/水瓶） | 土星 | 水星
+  水相（巨蟹/天蝎/双鱼） | 火星 | 火星

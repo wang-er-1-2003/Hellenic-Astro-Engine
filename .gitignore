@@ -1,0 +1,15 @@
+# 依赖
+node_modules/
+
+# 打包中间产物
+dist/win-unpacked/
+dist/builder-debug.yml
+
+# 调试残留
+*.log
+_stdout.log
+_stderr.log
+
+# 系统文件
+Thumbs.db
+.DS_Store

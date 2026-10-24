@@ -1,0 +1,29 @@
+{
+  "name": "Planetary Conditions (Accidental State)",
+  "essential_vs_accidental": "必然尊贵=本性（庙/旺/三分/界/面）；偶然状态=当下处境（宫位、速度、与太阳关系、顺逆行）",
+  "sun_relation_thresholds": {
+    "cazimi": {
+      "distance": "~17 arcmin (0.28°)",
+      "effect": "极强——'王座之上'，罕见而有力"
+    },
+    "combustion": {
+      "distance": "~8°30' (通用简化值)",
+      "effect": "严重减损——被太阳烧毁、隐于强光"
+    },
+    "under_the_rays": {
+      "distance": "~15°",
+      "effect": "削弱、遮蔽、失去自己的声音"
+    },
+    "free_of_rays": {
+      "distance": ">15°",
+      "effect": "可见且自主运作"
+    }
+  },
+  "notes": [
+    "上述为教学通用简化值（以水星为例），真实古典规则每颗行星燃烧距离不同（如月亮约12°、土星约10°），且不同来源数值有出入（realastrology: 8°30'; asknova: ~8°; augurine: per-planet up to 17°）",
+    "逆行=偶然减损：不改变本性，但表意迟疑、内转、外在行动迟缓；不单独定罪，按整体状态权衡（Bonatti）",
+    "东出(oriental)/西入(occidental)修正性质：东出偏热/主动/外显，西入偏冷/内敛/迟缓",
+    "来源: realastrology.ai/blog/mercury-retrograde-tradition; asknovaastrology.com/learn/techniques/solar-cycle/cazimi-combust-under-beams; augurine.com/tools/combust-planets-calculator"
+  ],
+  "version_warning": "精确阈值应按流派固定（如 Lilly 的 combustion 距离表）；教学简化值仅作起点"
+}

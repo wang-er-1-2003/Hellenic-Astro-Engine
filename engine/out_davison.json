@@ -1,0 +1,121 @@
+
+{
+  "midInput": {
+    "type": "natal",
+    "year": 1991,
+    "month": 4,
+    "day": 27,
+    "hour": 2,
+    "minute": 0,
+    "tzOffsetHours": 0,
+    "lat": 35.5673,
+    "lon": 118.94055,
+    "houseSystem": "P",
+    "orbSet": "modern",
+    "utHour": 2
+  },
+  "asc": {
+    "lon": 108.84032815395325,
+    "sign": "巨蟹"
+  },
+  "planets": [
+    {
+      "zh": "太阳",
+      "pos": {
+        "signIdx": 1,
+        "signEn": "Taurus",
+        "signZh": "金牛",
+        "signGlyph": "♉",
+        "signDeg": 6.333333333333333,
+        "text": "金牛 6°20′",
+        "raw": 36.32842100898725
+      },
+      "sign": "金牛",
+      "house": 9
+    },
+    {
+      "zh": "月亮",
+      "pos": {
+        "signIdx": 6,
+        "signEn": "Libra",
+        "signZh": "天秤",
+        "signGlyph": "♎",
+        "signDeg": 15.366666666666667,
+        "text": "天秤 15°22′",
+        "raw": 195.35938412240856
+      },
+      "sign": "天秤",
+      "house": 3
+    },
+    {
+      "zh": "水星",
+      "pos": {
+        "signIdx": 0,
+        "signEn": "Aries",
+        "signZh": "白羊",
+        "signGlyph": "♈",
+        "signDeg": 18.05,
+        "text": "白羊 18°3′",
+        "raw": 18.056099718119288
+      },
+      "sign": "白羊",
+      "house": 9
+    },
+    {
+      "zh": "金星",
+      "pos": {
+        "signIdx": 2,
+        "signEn": "Gemini",
+        "signZh": "双子",
+        "signGlyph": "♊",
+        "signDeg": 16.383333333333333,
+        "text": "双子 16°23′",
+        "raw": 76.39123738123544
+      },
+      "sign": "双子",
+      "house": 11
+    },
+    {
+      "zh": "火星",
+      "pos": {
+        "signIdx": 3,
+        "signEn": "Cancer",
+        "signZh": "巨蟹",
+        "signGlyph": "♋",
+        "signDeg": 13.133333333333333,
+        "text": "巨蟹 13°8′",
+        "raw": 103.12838162586664
+      },
+      "sign": "巨蟹",
+      "house": 11
+    },
+    {
+      "zh": "木星",
+      "pos": {
+        "signIdx": 4,
+        "signEn": "Leo",
+        "signZh": "狮子",
+        "signGlyph": "♌",
+        "signDeg": 4.716666666666667,
+        "text": "狮子 4°43′",
+        "raw": 124.71120422089838
+      },
+      "sign": "狮子",
+      "house": 11
+    },
+    {
+      "zh": "土星",
+      "pos": {
+        "signIdx": 10,
+        "signEn": "Aquarius",
+        "signZh": "宝瓶",
+        "signGlyph": "♒",
+        "signDeg": 6.516666666666667,
+        "text": "宝瓶 6°31′",
+        "raw": 306.5132088795122
+      },
+      "sign": "水瓶",
+      "house": 6
+    }
+  ]
+}

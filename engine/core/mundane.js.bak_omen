@@ -1,0 +1,434 @@
+// 星盘引擎 - F 世俗域（Mundane）：天象盘/蚀盘 → 世运判读
+// 数据源：Tetrabiblos Book II 世俗卷（45 条）+ MashallahEclipses（42 条）+ Clavis 世俗蚀兆卷（34 条）
+// 第三版：蚀黄经精确落宫——调用方可对蚀日期+最大食时刻排整盘（蚀盘）传入；mundaneScore(chart, eclipseChart)
+//   日蚀 td / 月蚀 tm 为最大食时刻（TT，历书时）；工程上近似 UTC 排盘并标注（ΔT≈69s，对蚀落宫边界有翻宫可能）
+//   无蚀盘时回退盘时刻日月黄经近似（误差标注：日蚀≈1°/天、月蚀≈13°/天）
+'use strict';
+const fs = require('fs');
+const path = require('path');
+
+const ORB = 8; // 蚀判定的合/冲容许度（工程默认）
+const ELEMENTS = ['火', '土', '风', '水', '火', '土', '风', '水', '火', '土', '风', '水']; // 星座四元素
+const ECLIPSE = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/eclipses.json'), 'utf-8'));
+const SOLAR = ECLIPSE.solar, LUNAR = ECLIPSE.lunar;
+// 映射Y-蚀主预兆对照（Clavis 世俗蚀兆卷，rule_tables.json 动态取）：蚀主四域预兆 + 火土特例 + 四元质三合
+const OMEN_TBL = (() => {
+  try {
+    const db = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/rule_tables.json'), 'utf-8'));
+    const t = (db.tables || []).find(x => (x.table || '').includes('映射Y'));
+    return t ? t.rows : null;
+  } catch (e) { return null; }
+})();
+const OMEN_BY_IDX = { 6: '土星', 5: '木星', 4: '火星', 3: '金星', 2: '水星' };
+// 宫位 → 世俗事类（Tetrabiblos II 对象分派/通用世俗映射）
+const HOUSE_MUNDANE = {
+  1: '国家/君主/人民', 2: '财政/贸易', 3: '邻国/交通/文书', 4: '土地/农业/地产/城邦根基',
+  5: '子嗣/娱乐', 6: '健康/劳役/军役', 7: '战争/外交/敌国', 8: '死亡/债务/灾厄',
+  9: '宗教/法律/学术/远行', 10: '政府/君主/权威', 11: '议会/盟友/财富同盟', 12: '灾祸/秘密/囚禁',
+};
+const BENEFIC = new Set([3, 5]); // 金木
+const MALEFIC = new Set([4, 6]); // 火土
+const TYPE_ZH = { T: '全蚀', A: '环蚀', H: '全环蚀', P: '偏蚀', N: '半影蚀' };
+
+function dif(a, b) { let d = ((a - b) % 360 + 360) % 360; return d > 180 ? d - 360 : d; }
+function aspectType(lonA, lonB) {
+  const d = Math.abs(dif(lonA, lonB));
+  const table = [[0, '合'], [60, '六合'], [90, '刑'], [120, '三合'], [180, '冲']];
+  for (const [deg, zh] of table) if (Math.abs(d - deg) < ORB) return zh;
+  return null;
+}
+
+/** 日期 '2026-08-12'（天文年可负）→ 日历序数（年*10000+月*100+日，仅用于邻近排序） */
+function dateOrd(d) {
+  const m = /^(-?\d+)-(\d{2})-(\d{2})$/.exec(d);
+  return Number(m[1]) * 10000 + Number(m[2]) * 100 + Number(m[3]);
+}
+/** 蚀表（按日期序）中找距盘日期序最近者 */
+function nearestEclipse(list, ord, windowDays) {
+  let best = null, bestDiff = Infinity;
+  for (const e of list) {
+    const diff = Math.abs(dateOrd(e.d) - ord);
+    if (diff < bestDiff) { bestDiff = diff; best = e; }
+    if (dateOrd(e.d) > ord + windowDays) break; // 已过窗口，序有序可早停
+  }
+  return bestDiff <= windowDays ? { e: best, diff: bestDiff } : null;
+}
+/** 分钟数 → 'Xh Ym' */
+function minStr(m) {
+  if (m == null) return null;
+  return `${Math.floor(m / 60)}h${Math.round(m % 60)}m`;
+}
+
+/**
+ * 蚀邻近查找（供调用方排蚀盘用）。
+ * @param {object} chart computeChart 输出（读 meta.input 取盘日期）
+ * @param {number} [windowDays=15]
+ * @returns {{kind:'日蚀'|'月蚀', e:object, diff:number, tm:string|null} | null}
+ *   tm=最大食时刻（TT）：日蚀 e.td、月蚀 e.tm；无时刻（如部分历史蚀表缺列）返回 null
+ */
+function findNearestEclipse(chart, windowDays = 15) {
+  const inp = chart.meta && chart.meta.input ? chart.meta.input : null;
+  if (!inp || inp.year == null) return null;
+  const ord = Number(inp.year) * 10000 + Number(inp.month) * 100 + Number(inp.day);
+  const ns = nearestEclipse(SOLAR, ord, windowDays);
+  const nl = nearestEclipse(LUNAR, ord, windowDays);
+  const cand = [];
+  if (ns) cand.push({ kind: '日蚀', e: ns.e, diff: ns.diff });
+  if (nl) cand.push({ kind: '月蚀', e: nl.e, diff: nl.diff });
+  cand.sort((a, b) => a.diff - b.diff);
+  if (!cand.length) return null;
+  const hit = cand[0];
+  return {
+    kind: hit.kind, e: hit.e, diff: hit.diff,
+    tm: hit.kind === '日蚀' ? (hit.e.td || null) : (hit.e.tm || null),
+  };
+}
+
+/** 蚀描述串（NASA 目录字段） */
+function eclipseDesc(kind, e) {
+  return `${kind}：${e.d} ${e.tm || e.td || ''}（${TYPE_ZH[e.t] || e.t}，Saros ${e.s}，Mag ${e.m ?? e.um ?? e.pm}，中心 ${e.la}°/${e.lo}°）`;
+}
+
+/**
+ * 蚀可见性（TTB-213：蚀升于地平以上可见者应验更重）——由调用方用 swe 算好传入。
+ * @param {object} [visibility] {body:'太阳'|'月亮', alt:number(高度角°), visible:bool, note:string}
+ *   高度角由调用方算（swe.calc_ut EQUATORIAL + sidtime），mundane 只消费判据
+ */
+function mundaneScore(chart, eclipseChart, visibility) {
+  const factors = [];
+  let score = 0;
+  const sun = chart.planets.find(p => p.idx === 0);
+  const moon = chart.planets.find(p => p.idx === 1);
+  const asc = chart.houses.angles.asc;
+  const WINDOW = 15; // 蚀邻近窗口（天）
+
+  // 0. 盘日期序数（从 chart 输入）
+  const inp = chart.meta && chart.meta.input ? chart.meta.input : null;
+  let ord = null;
+  if (inp && inp.year != null) ord = Number(inp.year) * 10000 + Number(inp.month) * 100 + Number(inp.day);
+
+  // 1. 真实蚀表邻近查找（NASA 五千年目录）——替代纯日月合冲提示
+  let eclipse = null, eclLon = null, eclSrc = null, eclMode = null;
+  if (ord != null) {
+    const hit = findNearestEclipse(chart, WINDOW);
+    if (hit) {
+      const e = hit.e;
+      eclipse = eclipseDesc(hit.kind, e);
+      eclSrc = `NASA 五千年蚀目录（距盘 ${hit.diff} 天）`;
+      // 蚀黄经精确：蚀时刻整盘排算（蚀盘）——日蚀=蚀盘太阳、月蚀=蚀盘月亮
+      if (eclipseChart) {
+        const eSun = eclipseChart.planets.find(p => p.idx === 0);
+        const eMoon = eclipseChart.planets.find(p => p.idx === 1);
+        const lon = hit.kind === '日蚀' ? (eSun ? eSun.lon : null) : (eMoon ? eMoon.lon : null);
+        if (lon != null) {
+          eclLon = lon;
+          eclMode = '精确';
+          const tt = hit.tm || '12:00:00';
+          factors.push({ w: 0, f: `${hit.kind}落宫（蚀时刻 ${e.d} ${tt} 整盘排算，蚀黄经 ${lon.toFixed(1)}°）`, d: '蚀时刻=最大食时刻（TT，工程上近似 UTC，ΔT≈69s 未计）', s: eclSrc });
+        }
+      }
+      // 回退：以盘时刻日月黄经近似（误差标注）
+      if (eclLon == null) {
+        if (hit.kind === '日蚀' && sun) {
+          eclLon = sun.lon;
+          factors.push({ w: 0, f: `日蚀落宫（以盘时刻太阳黄经 ${sun.lon.toFixed(1)}° 近似，回退）`, d: `蚀与盘相差 ${hit.diff} 天，黄经误差≈${hit.diff}°`, s: eclSrc });
+        } else if (hit.kind === '月蚀' && moon) {
+          eclLon = moon.lon;
+          factors.push({ w: 0, f: `月蚀落宫（以盘时刻月亮黄经 ${moon.lon.toFixed(1)}° 近似，回退）`, d: `蚀与盘相差 ${hit.diff} 天，黄经误差≈${hit.diff * 13}°（月亮日行≈13°/天）`, s: eclSrc });
+        }
+      }
+      // 蚀应期：日蚀持续时长→年数（Tetrabiblos：日蚀每时辰≈1年；1时辰=2小时）；月蚀全蚀时长→月数
+      if (hit.kind === '日蚀' && e.du) {
+        const m = /^(\d+)m(\d+)s$/.exec(e.du);
+        if (m) {
+          const mins = Number(m[1]) * 60 + Number(m[2]);
+          const years = (mins / 120).toFixed(1); // 时辰=120 分钟
+          score += years > 0.5 ? 1 : 0;
+          factors.push({ w: years > 0.5 ? 1 : 0, f: `日蚀持续 ${e.du} → 应期约 ${years} 年`, d: '日蚀每时辰≈1年（Tetrabiblos II）', s: 'Tetrabiblos II' });
+        }
+      } else if (hit.kind === '月蚀' && e.t === 'T') {
+        score += e.td != null && e.td > 30 ? 1 : 0;
+        factors.push({ w: e.td != null && e.td > 30 ? 1 : 0, f: `月全蚀持续 ${minStr(e.td)} → 应期约 ${e.td != null ? Math.round(e.td / 60) : '?'} 个月`, d: '月蚀每时辰≈1月（Tetrabiblos II，1时辰=2h）', s: 'Tetrabiblos II' });
+      }
+    }
+  }
+  if (!eclipse) {
+    // 无真实蚀命中 → 保留日月合/冲近似提示（注明非蚀表）
+    const sunMoonAsp = aspectType(sun.lon, moon.lon);
+    if (sunMoonAsp === '合') { eclipse = '日蚀提示（日月合，窗口±15天无真实蚀）'; eclLon = sun.lon; eclSrc = '盘相近似（非蚀表）'; score += 1; }
+    else if (sunMoonAsp === '冲') { eclipse = '月蚀提示（日月冲，窗口±15天无真实蚀）'; eclLon = moon.lon; eclSrc = '盘相近似（非蚀表）'; score -= 1; }
+    else { eclipse = `无蚀（日月${sunMoonAsp || '无主相位'}，窗口±15天无真实蚀）`; }
+  }
+  factors.push({ w: eclipse.includes('提示') ? (eclipse.includes('月蚀') ? -1 : 1) : 0, f: eclipse, d: eclSrc || 'NASA 蚀目录/盘相近似', s: 'NASA/盘相' });
+
+  // 2. 蚀位（日月所在）宫位 → 世域 + 落座元素 → 天气倾向（Mashallah）
+  if (eclLon != null) {
+    const { houseOfLon } = require('./life');
+    const eh = houseOfLon(eclLon, chart);
+    const signIdx = Math.floor(eclLon / 30);
+    const el = ELEMENTS[signIdx];
+    const elWeather = { 火: '大旱/地荒（Mashallah 火象合相）', 水: '多雨/瘟疫', 风: '多风', 土: '霜雪/寒' };
+    factors.push({ w: 0, f: `蚀落${eh}宫（${HOUSE_MUNDANE[eh]}）+ ${el}象星座`, d: '蚀宫位对应世域；元素对应天气', s: 'Tetrabiblos II / Mashallah' });
+    score += el === '火' ? -1 : 0; // 火象合相=旱荒（-1）；其余不硬判
+  }
+
+  // 2b. 蚀位对四角时序三分（TTB-216）：蚀落东升点=事起蚀后首4个月、加剧总时程首1/3；落中天=第2四月、中1/3；落西没点=第3四月、末1/3
+  //     四角取蚀时刻整盘（TTB-215"定蚀时刻之四角"口径）；蚀黄经与角差 < ORB(8°) 判"落该角"（工程容许）
+  if (eclLon != null && eclipseChart && eclipseChart.houses && eclipseChart.houses.angles) {
+    const ang = eclipseChart.houses.angles;
+    const corners = [['东升点', ang.asc], ['中天', ang.mc], ['西没点', ang.dc]];
+    let hitCorner = null;
+    for (const [zh, lon] of corners) {
+      if (lon != null && Math.abs(dif(eclLon, lon)) < ORB) { hitCorner = zh; break; }
+    }
+    if (hitCorner === '东升点') {
+      factors.push({ w: 0, f: '蚀落东升点 → 事起于蚀后首4个月、加剧于总时程首1/3', d: 'TTB-216（蚀位对四角时序三分）', s: 'Tetrabiblos II' });
+    } else if (hitCorner === '中天') {
+      factors.push({ w: 0, f: '蚀落中天 → 事起于蚀后第2个四月、加剧于总时程中1/3', d: 'TTB-216（蚀位对四角时序三分）', s: 'Tetrabiblos II' });
+    } else if (hitCorner === '西没点') {
+      factors.push({ w: 0, f: '蚀落西没点 → 事起于蚀后第3个四月、加剧于总时程末1/3', d: 'TTB-216（蚀位对四角时序三分）', s: 'Tetrabiblos II' });
+    } else {
+      factors.push({ w: 0, f: `蚀位不对四角（蚀黄经 ${eclLon.toFixed(1)}°，ASC/MC/DSC ${ORB}° 内无命中）`, d: 'TTB-216 未触发（蚀落非角，如实）', s: 'Tetrabiblos II' });
+    }
+  }
+
+  // 2c. 蚀可见性（TTB-213：蚀升于地平以上可见者应验更重——相熟之国尤以可见者为重）
+  if (visibility && eclipse) {
+    if (visibility.visible) {
+      factors.push({ w: 0, f: `蚀可见于盘地点（${visibility.body}高度角 ${visibility.alt.toFixed(1)}°）→ 应验加重于本相熟地`, d: 'TTB-213（蚀在地平以上可见者应验更重）' + (visibility.note ? '；' + visibility.note : ''), s: 'Tetrabiblos II' });
+    } else {
+      factors.push({ w: 0, f: `蚀不可见于盘地点（${visibility.body}高度角 ${visibility.alt.toFixed(1)}°，地平下）→ 应验减弱`, d: 'TTB-213（尤以蚀升于地平以上可见者为重——不可见则应验减）' + (visibility.note ? '；' + visibility.note : ''), s: 'Tetrabiblos II' });
+    }
+  }
+
+  // 2d. 蚀主择定（TTB-218）：对"蚀位星座 + 蚀前之角（蚀盘 ASC 星座）"两区域相熟计数最多者独主；
+  //      并列取近角（行星落蚀盘角宫）→ 更显（sect 得时）→ 更同宗（sect 一致）；仍并列全列出（如实）
+  //      相熟=行星在两星座的本然尊贵权（庙5/擢4/三分3/界2/面1）；原文"应用/退离+相关相位"未计（标注）
+  if (eclipseChart) {
+    const { dignityInSign } = require('./almuten');
+    const isDayE = eclipseChart.meta.isDay === 'day';
+    const eclSignIdx = eclLon != null ? Math.floor(eclLon / 30) : null;
+    const ascSignIdx = eclipseChart.houses.angles.asc != null ? Math.floor(eclipseChart.houses.angles.asc / 30) : null;
+    if (eclSignIdx != null && ascSignIdx != null) {
+      const sevenE = eclipseChart.planets.filter(p => p.idx <= 6);
+      const scored = sevenE.map(p => {
+        const s1 = dignityInSign(p.idx, eclSignIdx, isDayE);
+        const s2 = dignityInSign(p.idx, ascSignIdx, isDayE);
+        return { p, total: s1.score + s2.score, list: [...new Set([...s1.list, ...s2.list])] };
+      });
+      const maxS = Math.max(...scored.map(s => s.total));
+      let pool = scored.filter(s => s.total === maxS);
+      let note = `（蚀位${['白羊','金牛','双子','巨蟹','狮子','处女','天秤','天蝎','射手','摩羯','水瓶','双鱼'][eclSignIdx]}座 + 蚀盘升点${['白羊','金牛','双子','巨蟹','狮子','处女','天秤','天蝎','射手','摩羯','水瓶','双鱼'][ascSignIdx]}座 相熟合计 ${maxS}）`;
+      if (pool.length > 1) {
+        // 并列：近角（落蚀盘角宫）→ 更显（sect 得时，dignityScore>0）→ 更同宗；仍并列全列出
+        const angHouses = new Set([1, 4, 7, 10]);
+        const near = pool.filter(s => angHouses.has(s.p.house));
+        if (near.length) { pool = near; note += ' → 取近角'; }
+        if (pool.length > 1) {
+          const strong = pool.filter(s => (s.p.dignityScore || 0) > 0);
+          if (strong.length) { pool = strong; note += ' → 取更显'; }
+        }
+        if (pool.length > 1) {
+          const sameSect = pool.filter(s => s.p.idx !== 0 && s.p.idx !== 1); // 光体外的行星（sect 同宗工程近似：非日月者优先）
+          if (sameSect.length) { pool = sameSect; note += ' → 取更同宗（非日月近似）'; }
+        }
+      }
+      const lord = pool.map(s => `${s.p.zh}(${s.total}${s.list.length ? '：' + s.list.join('/') : ''})`).join('/');
+      factors.push({ w: 0, f: `蚀主=${lord}`, d: `TTB-218（蚀位+蚀前之角相熟计数${pool.length > 1 ? '；仍并列全列出（如实）' : ''}）${note}`, s: 'Tetrabiblos II' });
+      // 蚀主强弱（Clavis 蚀兆卷：蚀主吉/凶 + 强弱修饰应验）
+      const top = pool[0];
+      if (top) {
+        const isBen = BENEFIC.has(top.p.idx), isMal = MALEFIC.has(top.p.idx);
+        if (isBen && (top.p.dignityScore || 0) > 0) { score += 1; factors.push({ w: 1, f: `蚀主${top.p.zh}为吉星且得势 → 应验向吉`, d: 'Clavis 蚀兆卷（吉主得势）', s: 'Clavis 蚀兆卷' }); }
+        else if (isMal && (top.p.dignityScore || 0) > 0) { score -= 1; factors.push({ w: -1, f: `蚀主${top.p.zh}为凶星且得势 → 应验向凶`, d: 'Clavis 蚀兆卷（凶主得势）', s: 'Clavis 蚀兆卷' }); }
+        else if ((top.p.dignityScore || 0) <= 0) { factors.push({ w: 0, f: `蚀主${top.p.zh}不得势（本然尊贵 ${top.p.dignityScore || 0}）`, d: 'Clavis 蚀兆卷（弱主修饰应验，不硬判）', s: 'Clavis 蚀兆卷' }); }
+      }
+      // 蚀主预兆（映射Y：人身/空气/海河/大地 + 火土特例 + 四元质三合）
+      const yr = [...chart.planets.filter(p => p.idx <= 6)].sort((a, b) => (b.dignityScore || 0) - (a.dignityScore || 0))[0];
+      const omen = eclipseOmen(eclLon, pool.map(s => s.p.idx), yr && (yr.dignityScore || 0) > 0 ? yr.idx : null, chart);
+      if (omen.person.length || omen.air.length || omen.sea.length || omen.land.length || omen.special.length || omen.element.length) {
+        factors.push({ w: 0, f: '蚀主预兆（映射Y）', d: `${['person:人身', 'air:空气', 'sea:海河', 'land:大地', 'special:特例', 'element:四元质'].filter(k => omen[k.split(':')[0]].length).map(k => `${k.split(':')[1]}：${omen[k.split(':')[0]].join('；')}`).join(' | ')}${omen.note ? '（' + omen.note + '）' : ''}`, s: 'Clavis 蚀兆卷 映射Y' });
+        score = score; // 预兆为描述性判读，不加分（映射Y 未给数值）
+      }
+    }
+  }
+
+  // 3. 蚀时行星参与：吉星照蚀位+1、凶星照蚀位-1（照=合/六合/三合 吉、合/刑/冲 凶）
+  if (eclLon != null) {
+    for (const p of chart.planets.filter(x => x.idx <= 6)) {
+      const asp = aspectType(eclLon, p.lon);
+      if (!asp) continue;
+      const isBen = BENEFIC.has(p.idx), isMal = MALEFIC.has(p.idx);
+      if (isBen && ['合', '六合', '三合'].includes(asp)) { score += 1; factors.push({ w: 1, f: `吉星${p.zh}${asp}蚀位`, d: '吉星参与成丰', s: 'Mashallah' }); }
+      else if (isMal && ['合', '刑', '冲'].includes(asp)) { score -= 1; factors.push({ w: -1, f: `凶星${p.zh}${asp}蚀位`, d: '凶星照蚀=战乱/灾毁', s: 'Mashallah' }); }
+    }
+  }
+
+  // 4. 年主星（Clavis Ptolomy 法：尊贵最高者=年主星；强弱=totalScore）
+  const lord = [...chart.planets.filter(p => p.idx <= 6)].sort((a, b) => (b.dignityScore || 0) - (a.dignityScore || 0))[0];
+  if (lord && (lord.dignityScore || 0) > 0) {
+    const strong = (lord.totalScore || 0) > 0;
+    score += strong ? 1 : -1;
+    factors.push({ w: strong ? 1 : -1, f: `年主=${lord.zh}（本然尊贵 ${lord.dignityScore}${lord.totalScore != null ? `，综合 ${lord.totalScore}` : ''}）`, d: `年主强=吉年/弱=凶年（${strong ? '强' : '弱'}）`, s: 'Clavis 蚀兆卷（Ptolomy 法）' });
+  } else {
+    factors.push({ w: 0, f: '年主：七政无本然尊贵者', d: '无法判年主强弱', s: '数据限制' });
+  }
+
+  // 4b. 蚀盘行星出没晨升/晚升强弱增减（BO-054：外行星晨升强/内行星晚升强；追日则弱，内外相反）
+  //     12°=将现强 +1、15°=可见更强 +2；<15°弱增 −1、<7°更弱 −2、cazimi(16′)极弱 −3（工程口径）
+  //     内行星增强要求顺行（BO-054 原文）；慢行迟得（BO-052）另标注
+  if (eclipseChart) {
+    const eSun = eclipseChart.planets.find(p => p.idx === 0);
+    if (eSun) {
+      for (const p of eclipseChart.planets.filter(x => x.idx >= 1 && x.idx <= 6)) {
+        const d = dif(p.lon, eSun.lon); // >0 行星在日东（晚升候选）、<0 在日西（晨升候选）
+        const absd = Math.abs(d);
+        const CAZIMI = 0.27; // 16′
+        let tag = null, w = 0;
+        if (p.idx === 4 || p.idx === 5 || p.idx === 6) { // 外行星
+          if (d < -15) { tag = '晨升可见（离日' + absd.toFixed(1) + '°）→ 更强'; w = 2; }
+          else if (d <= -12) { tag = '将晨升（离日' + absd.toFixed(1) + '°）→ 强'; w = 1; }
+          else if (d < 0) { tag = '日辉下（离日' + absd.toFixed(1) + '°，未晨升）→ 弱'; w = -1; } // BO-053：≤12° 在日辉下效力微小
+          else if (d < CAZIMI) { tag = 'cazimi 极弱'; w = -3; }
+          else if (d < 7) { tag = '太阳追之（距日' + d.toFixed(1) + '°）→ 更弱'; w = -2; }
+          else if (d < 15) { tag = '太阳追之（距日' + d.toFixed(1) + '°）→ 弱'; w = -1; }
+          // d>=15 日东：BO-054 无判据，如实不判（BO-056 外行星东出强系德性交付语境，另行未计）
+        } else { // 内行星（月1/水2/金3）
+          const direct = !p.retrograde;
+          if (d >= 15 && direct) { tag = '晚升可见（离日' + d.toFixed(1) + '°）→ 更强'; w = 2; }
+          else if (d >= 12 && direct) { tag = '将晚升（离日' + d.toFixed(1) + '°）→ 强'; w = 1; }
+          else if (d < CAZIMI) { tag = 'cazimi 极弱'; w = -3; }
+          else if (d < 7) { tag = d < 0 ? '晨侧见弱（距日' + absd.toFixed(1) + '°）→ 更弱' : '随日而行（距日' + d.toFixed(1) + '°）→ 更弱'; w = -2; }
+          else if (d < 12) { tag = d < 0 ? '晨侧见弱（距日' + absd.toFixed(1) + '°）→ 弱' : '随日而行（距日' + d.toFixed(1) + '°）→ 弱'; w = -1; }
+          else if (!direct) { tag = '逆行不增强（距日' + d.toFixed(1) + '°）'; w = 0; }
+        }
+        if (tag) {
+          if (w !== 0) score += w;
+          factors.push({ w, f: `${p.zh}${tag}`, d: `BO-054（外晨升强/内晚升强；追日弱）${p.speed != null && Math.abs(p.speed) < 0.5 ? '；慢行（BO-052：吉迟得，标注）' : ''}`, s: 'Bonatti146' });
+        }
+      }
+    }
+  }
+
+  // 5. 世俗大事行星征象（Clavis 映射X：行星-事项表——简版：落角宫的行星提示）
+  for (const p of chart.planets.filter(x => x.idx <= 6)) {
+    if ([1, 4, 7, 10].includes(p.house)) {
+      const tag = BENEFIC.has(p.idx) ? '吉' : MALEFIC.has(p.idx) ? '凶' : '中';
+      factors.push({ w: 0, f: `${p.zh}落${p.house}宫（角）`, d: `角宫行星主事（${tag}性）`, s: 'Clavis 映射X' });
+    }
+  }
+
+  // 6. 未计（实事求是）
+  const unscored = [
+    eclMode === '精确'
+      ? '蚀黄经精确落宫已计（蚀时刻整盘排算）——蚀时刻=最大食时刻 TT 近似 UTC（ΔT≈69s 未计，蚀落宫边界有翻宫可能）'
+      : '蚀黄经精确落宫未计——调用方未提供蚀时刻整盘（当前以盘时刻日月黄经近似，误差已标注）',
+    '蚀可见地域判定（TTB-213）' + (visibility ? `已计（${visibility.body}高度角 ${visibility.alt.toFixed(1)}°${visibility.visible ? '，可见' : '，不可见'}）` : '未计——需 swe 算蚀光体高度角（EQUATORIAL+恒星时）'),
+    '相熟计数（TTB-218 蚀主择定）' + (eclipseChart ? '已计（蚀位+蚀盘升点两区本然尊贵权计数；原文"应用/退离+相关相位"部分未计，并列近角→更显→更同宗工程口径）' : '未计——需蚀时刻整盘'),
+    '蚀位对四角时序三分（TTB-216）' + (eclipseChart ? '已计（蚀盘 ASC/MC/DSC 8° 容许）——蚀落非角时如实标注' : '未计——需蚀时刻整盘四角'),
+    '行星出/留/没/灼/晚升增减（BO-054 已计：外晨升强/内晚升强 +1~+2、追日弱 −1~−3、cazimi 极弱；逆行不增强标注；BO-052 慢行迟得标注；BO-056 德性交付已计——见 virtue 块，20′ 阈值+东出/西没）',
+    '世运法达大限未并入——规则库无世运法达判据原文（年主=Lord of the Year 已按 Ptolomy 法实现）；并入需规则依据，不做无据编造',
+  ];
+  const virtue = (eclipseChart && lord) ? deliverVirtue(eclipseChart, lord.idx) : (eclipseChart ? { deliveries: [], note: '蚀盘无年主（七政无本然尊贵者），德性交付未计' } : null);
+  const verdict = score > 3 ? '世运偏吉' : score >= 0 ? '中性' : '世运偏凶';
+  return { score, verdict, eclipse, eclMode: eclMode || (eclipse ? '近似/回退' : null), lord: lord ? { zh: lord.zh, dignity: lord.dignityScore, total: lord.totalScore } : null, virtue, factors, unscored, asc: asc.toFixed(2), sources: ['Tetrabiblos Book II（45条）', 'MashallahEclipses（42条）', 'Clavis 世俗蚀兆卷（34条）'] };
+
+/**
+ * 德性交付（BO-056，Lilly 第 56 考量，引 Sarcinator）：征象星将德性交付他星（相位对方=接受星），
+ * 看接受星东出/西没与距日裁定强弱：
+ *   - 距日 ≤20′（0.33°）且（内行星东出顺行 或 外行星西没）→ 弱：不成其所示、碍多事（"距日越远碍越小"→20′~2° 弱减、>2° 无碍）
+ *   - 外行星东出 或 内行星西没（不逆行）→ 强：能成其所诺（如病愈之人、修复之屋）
+ * 口径：Oriental=晨升=行星在日西（dif<0）、Occidental=晚升=在日东（dif>0）——与 BO-054 一致；
+ * 工程：征象星=调用方给（F 域=年主 idx）；交付相位=合/六/三（8° 容许）；20′=0.33°
+ */
+function deliverVirtue(chart, sigIdx) {
+  const sun = chart.planets.find(p => p.idx === 0);
+  if (!sun) return { deliveries: [], note: '盘无太阳，未计' };
+  const sig = chart.planets.find(p => p.idx === sigIdx);
+  if (!sig) return { deliveries: [], note: `征象星 idx=${sigIdx} 不在盘中` };
+  const CAZIMI = 0.33; // 20′（BO-056 原文）
+  const WEAK_LIMIT = 2; // 碍随距日递减上限（工程口径：>2° 无碍）
+  const deliveries = [];
+  for (const acc of chart.planets.filter(p => p.idx !== sigIdx && p.idx >= 1 && p.idx <= 6)) {
+    const asp = aspectType(sig.lon, acc.lon);
+    if (!asp || !['合', '六合', '三合'].includes(asp)) continue; // 德性交付=吉性相位（原文"交付"语境）
+    const d = dif(acc.lon, sun.lon);
+    const absd = Math.abs(d);
+    const outer = acc.idx === 4 || acc.idx === 5 || acc.idx === 6;
+    const inner = acc.idx === 1 || acc.idx === 2 || acc.idx === 3;
+    let verdict = null, note = '';
+    if (absd <= CAZIMI) {
+      const cond = (inner && d < 0 && !acc.retrograde) || (outer && d > 0);
+      if (cond) { verdict = '弱'; note = `距日${absd.toFixed(2)}°≤20′ 且（内东出顺行/外西没）——Sarcinator：不成所诺、碍多事`; }
+      else { verdict = '弱（近日）'; note = `距日${absd.toFixed(2)}°≤20′ 近日——德性受日光所碍`; }
+    } else if (absd <= WEAK_LIMIT) {
+      const cond = (inner && d < 0 && !acc.retrograde) || (outer && d > 0);
+      if (cond) { verdict = '弱（随距递减）'; note = `距日${absd.toFixed(1)}° 且（内东出顺行/外西没）——碍随距日递减（BO-056）`; }
+    } else {
+      const strong = (outer && d < 0) || (inner && d > 0 && !acc.retrograde);
+      if (strong) { verdict = '强'; note = `${outer ? '外行星东出(晨升)' : '内行星西没(晚升)'}${acc.retrograde ? '' : ' 不逆行'}——能成所诺（病愈/修屋）`; }
+      else { verdict = '中性'; note = `距日${absd.toFixed(1)}° 无 BO-056 强弱判据（${outer ? '外行星非晨升' : '内行星非晚升'}）`; }
+    }
+    if (verdict) deliveries.push({ acc: acc.zh, sig: sig.zh, aspect: asp, orient: d < 0 ? '晨侧(东出候选)' : '日侧(西没候选)', distSun: absd, verdict, note });
+  }
+  return { deliveries, sig: sig.zh, unscored: ['德性交付场景=征象星与接受星吉性相位（合/六/三，8° 工程容许）；原文"交付"未定义相位类型，工程取吉性相（标注）'] };
+}
+
+/**
+ * 蚀主预兆对照（映射Y，Clavis 世俗蚀兆卷 CHAP XVIII）：蚀主四域预兆（人身/空气/海河/大地）+ 火土特例 + 四元质三合。
+ * 工程口径：蚀主=mundaneScore 2d 段择定的 top（并列时全列出）；四元质按蚀黄经落座；火土特例"年主土居土/水座无克+火恶照"中
+ *   无克=吉星未照蚀位（简化）、火恶照=火对蚀位合/刑/冲 8°（工程容许）。
+ * @param {number} eclLon 蚀黄经
+ * @param {Array<number>} rulerIdxs 蚀主行星 idx 列表（可并列）
+ * @param {number|null} lordIdx 年主 idx
+ * @param {object} chart 盘（含 planets）
+ * @returns {{person:Array, air:Array, sea:Array, land:Array, special:Array, element:Array, note:string}}
+ */
+function eclipseOmen(eclLon, rulerIdxs, lordIdx, chart) {
+  const o = { person: [], air: [], sea: [], land: [], special: [], element: [], note: '' };
+  if (!OMEN_TBL || eclLon == null) { o.note = '映射Y表缺失或蚀黄经未知，未计'; return o; }
+  // 蚀主预兆（行 2-6：土/木/火/金/水）
+  const byName = { '土星': '土', '木星': '木', '火星': '火', '金星': '金', '水星': '水' };
+  for (const idx of rulerIdxs) {
+    const nm = OMEN_BY_IDX[idx];
+    const row = OMEN_TBL.find(r => r[0] === nm);
+    if (!row) continue;
+    if (row[1]) o.person.push(`${nm}：${row[1]}`);
+    if (row[2]) {
+      const parts = String(row[2]).split('|').map(s => s.trim());
+      if (parts[0] && !parts[0].startsWith('§')) o.air.push(`${nm}：${parts[0]}`);
+      if (parts[1] && !parts[1].startsWith('§')) o.sea.push(`${nm}：${parts[1]}`);
+      if (parts[2] && !parts[2].startsWith('§')) o.land.push(`${nm}：${parts[2]}`);
+    }
+  }
+  // 火土特例（行 7）
+  const elIdx = Math.floor((((eclLon % 360) + 360) % 360) / 30);
+  const elem = ELEMENTS[elIdx]; // 蚀位四元素
+  const hasFire = elem === '火', hasAir = elem === '风';
+  const rulerFire = rulerIdxs.includes(4);
+  if (rulerFire && (hasFire || hasAir) && lordIdx != null) {
+    o.special.push('蚀主火星 + 蚀位火/风象 + 有年主 → 焚屋之兆（映射Y §6）');
+  }
+  if (lordIdx === 6) {
+    const lordP = chart.planets.find(p => p.idx === 6);
+    if (lordP) {
+      const le = ELEMENTS[Math.floor((((lordP.lon % 360) + 360) % 360) / 30)];
+      if (le === '土' || le === '水') {
+        const mars = chart.planets.find(p => p.idx === 4);
+        const bad = mars && ['合', '刑', '冲'].includes(aspectType(eclLon, mars.lon));
+        const noGood = !chart.planets.some(p => BENEFIC.has(p.idx) && aspectType(eclLon, p.lon) === '三合');
+        if (bad && noGood) o.special.push('年主土星居土/水象 无吉照 且 火星恶照蚀位 → 洪水/地震之兆（映射Y §6，工程简化）');
+      }
+    }
+  }
+  // 四元质三合（行 8）
+  const eRow = OMEN_TBL.find(r => r[0] === '四元质三合');
+  if (eRow) {
+    const map = { '火': eRow[1], '风': eRow[2], '水': eRow[3], '土': eRow[4] };
+    if (map[elem]) o.element.push(`${elem}象蚀（${['白羊','金牛','双子','巨蟹','狮子','处女','天秤','天蝎','射手','摩羯','宝瓶','双鱼'][elIdx]}）：${map[elem]}`);
+  }
+  o.note = '主应于蚀座所属地区（映射Y §7）；火土特例中"无克/恶照"为工程简化（吉照=吉星三合蚀位 8°；恶照=火合/刑/冲蚀位 8°）';
+  return o;
+}
+
+module.exports = { mundaneScore, findNearestEclipse, deliverVirtue, eclipseOmen };

@@ -1,0 +1,18 @@
+== 子表抽取完成 ==
+总表数: 249
+标签分布:
+  other                204
+  planetary_years      9
+  houses_meaning       9
+  terms                5
+  colors               5
+  dignity_table        3
+  lots_formula         3
+  triplicity           3
+  exaltation           2
+  aspect_orbs          2
+  planetary_elements   1
+  planetary_motion     1
+  faces                1
+  friends_enemies      1
+输出: D:\一个电脑软件\星盘引擎子件\engine\data\rule_tables.json (429 KB)

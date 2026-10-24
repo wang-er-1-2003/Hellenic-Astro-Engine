@@ -1,0 +1,31 @@
+{
+  "name": "法达星限法 Firdaria 年限与顺序表",
+  "description": "波斯占星起源的行星大限系统，经中世纪伊斯兰与欧洲传统传承；将人生按迦勒底顺序分为行星主宰期。",
+  "source": [
+    "https://firdaria.com/method.php (Robert Zoller 教学口径)",
+    "https://cn.astrodoor.cc/article/firdaria.jsp",
+    "传统出处：Abu Ma'shar / Guido Bonatti / Schoener",
+    "替代夜生顺序出处：Rob Hand"
+  ],
+  "note_versions": "【重要·版本分歧】夜生顺序存在两派：Zoller版（交点夹在火土之后）与 Hand版（交点移到最后）。做软件时必须固定一个版本，不能混用。昼生顺序两版一致。",
+  "years": {
+    "Sun": 10,
+    "Venus": 8,
+    "Mercury": 13,
+    "Moon": 9,
+    "Saturn": 11,
+    "Jupiter": 12,
+    "Mars": 7,
+    "NorthNode": 3,
+    "SouthNode": 2
+  },
+  "cycle_length_years": 75,
+  "sequences": {
+    "day": ["Sun", "Venus", "Mercury", "Moon", "Saturn", "Jupiter", "Mars", "NorthNode", "SouthNode"],
+    "night_zoller": ["Moon", "Saturn", "Jupiter", "Mars", "NorthNode", "SouthNode", "Sun", "Venus", "Mercury"],
+    "night_hand": ["Moon", "Saturn", "Jupiter", "Mars", "Sun", "Venus", "Mercury", "NorthNode", "SouthNode"]
+  },
+  "day_night_rule": "出生时太阳在地平线上（昼生盘）从太阳起算；太阳在地平线下（夜生盘）从月亮起算。",
+  "subperiod_rule": "每个主周期（南北交点除外）再分为7个副周期，每个副周期长度=主周期/7；副周期顺序与主周期顺序一致。南北交点主周期不再细分。",
+  "interpretation_note": "法达是时间分配法（非星盘），输出为人生各年龄段的主宰行星与副主宰行星序列。"
+}

@@ -1,0 +1,59 @@
+== 规则库-索引总表.xlsx ==
+  [sheet] 说明  dims=11x2
+  [sheet] 索引总表  dims=48x12
+  [sheet] 套系清单  dims=10x5
+  [sheet] 方法分类  dims=12x4
+  前 10 行:
+    R1: 文档 | 规则库-索引总表（47 卷全量索引）
+    R2: 范围 | D:\一个电脑软件\astrology-resource
+    R3: 卷数 | 47
+    R4: 总规则条数 | 2948
+    R5: 总映射/子表数 | 245
+    R6: 套系分组 | Lilly(6)/Clavis(8)/Dorotheus
+    R7: 方法类 | 本命/卜卦/择时/推运/世俗/点数/尊贵/相位/基础/验
+    R8: 编号体系 | 各卷独立前缀：AB/BO/BT/CARD/CE/CP3/
+    R9: schema | 12 列统一：rule_id/original_text
+    R10: 注意 | 方法类为主分类（每卷可兼多类）；档案卷（Neve/LIL
+
+== 规则库-Lilly行星释义卷.xlsx ==
+  [sheet] 说明  dims=9x2
+  [sheet] 规则条目  dims=74x12
+  [sheet] 行星要素总表  dims=8x10
+  [sheet] 行星运动参数  dims=8x9
+  [sheet] 行星纬度极值  dims=8x3
+  [sheet] 行星年数表  dims=8x6
+  [sheet] 界terms  dims=57x4
+  [sheet] 面faces  dims=37x4
+  [sheet] 庙陷擢落  dims=8x8
+  [sheet] 三分主星  dims=5x3
+  [sheet] 友敌表  dims=8x3
+  [sheet] 星期天使国家  dims=8x7
+  [sheet] 行星颜色  dims=8x2
+  [sheet] 星座颜色  dims=13x2
+  [sheet] 宫位颜色  dims=13x2
+  [sheet] 风向表  dims=8x2
+  [sheet] 孕月分配  dims=10x3
+  前 8 行:
+    R1: 书名 | William Lilly《Christian Astr
+    R2: 源文件 | lilly_CA_partIII.txt（土星 Ch8/
+    R3: 版权处理 | Lilly 正文 1647 年出版=公有领域——orig
+    R4: 本卷范围 | 规则条目 73 条：土/木/火/日/金/水/月 各 8-
+    R5: 与前库关系 | 界（terms）/面（faces）逐度数据与本库 Sch
+    R6: 核心价值 | 第4层解读引擎的行星释义基座：①每行星人群/职业/疾病映
+    R7: 编号体系 | LIL-SAT/JUP/MAR/SUN/VEN/MER/
+    R8: 12列schema | rule_id/original_text/transl
+
+== 规则库-推运体系.xlsx ==
+  [sheet] 说明  dims=19x2
+  [sheet] 规则条目  dims=51x12
+  [sheet] 映射-小限年龄对应  dims=14x3
+  [sheet] 映射-预测方法速查  dims=12x3
+  前 8 行:
+    R1: 推运体系（预测方法）规则库 — 说明 | 
+    R2:  | 
+    R3: 书名 | 推运体系（预测方法）规则库——三篇公共领域教学文章合编
+    R4: 组成 | ①astrology.com.tr《Predictive
+    R5: 文件位置 | public-domain\rule_articles\
+    R6: 条目数 | 45 条（PM-001~017 预测总览 + SP-00
+    R7: 制作日期 | 2026-10-18
+    R8: 领域 | 第3层：推运方法模块（此前最后缺口）——本轮闭环：日返/

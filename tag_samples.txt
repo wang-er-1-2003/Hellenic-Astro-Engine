@@ -1,0 +1,21 @@
+== 规则库-Lilly行星释义卷.xlsx == 列: rule_id, original_text, translation, planets, signs, houses, aspects, condition, result, rule_type, confidence, notes
+  LIL-SAT-02 | planets=[Saturn] signs=[None] houses=[None] aspects=[None]
+  LIL-MAR-05 | planets=[Mars] signs=[None] houses=[None] aspects=[None]
+
+== 规则库-Lilly星座释义卷.xlsx == 列: rule_id, original_text, translation, planets, signs, houses, aspects, condition, result, rule_type, confidence, notes
+
+== 规则库-Lilly相位状态卷.xlsx == 列: rule_id, original_text, translation, planets, signs, houses, aspects, condition, result, rule_type, confidence, notes
+
+== 规则库-Clavis基础教义卷.xlsx == 列: rule_id, original_text, translation, planets, signs, houses, aspects, condition, result, rule_type, confidence, notes
+  CE-001 | planets=[None] signs=[None] houses=[None] aspects=[None]
+  CE-002 | planets=[None] signs=[None] houses=[None] aspects=[None]
+  CE-003 | planets=[None] signs=[None] houses=[None] aspects=[None]
+  CE-004 | planets=[None] signs=[None] houses=[None] aspects=[None]
+  CE-005 | planets=[None] signs=[None] houses=[None] aspects=[None]
+
+== 规则库-Tetrabiblos本命卷(BookIII).xlsx == 列: rule_id, original_text, translation, planets, signs, houses, aspects, condition, result, rule_type, confidence, notes
+  TTB-301 | planets=[Sun,Moon] signs=[None] houses=[None] aspects=[None]
+  TTB-302 | planets=[None] signs=[None] houses=[None] aspects=[None]
+  TTB-303 | planets=[None] signs=[None] houses=[None] aspects=[None]
+  TTB-304 | planets=[None] signs=[None] houses=[ASC,MC] aspects=[None]
+  TTB-305 | planets=[None] signs=[None] houses=[ASC] aspects=[None]

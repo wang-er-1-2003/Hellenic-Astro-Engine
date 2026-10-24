@@ -1,0 +1,56 @@
+== rulebooks (48 个 xlsx) ==
+  规则库-AlBiruni阿拉伯点.xlsx                                                        22 KB
+  规则库-Bonatti146.xlsx                                                          97 KB
+  规则库-Bonatti4宫择时.xlsx                                                         33 KB
+  规则库-Cardano箴言第一卷.xlsx                                                        22 KB
+  规则库-Clavis世俗蚀兆卷.xlsx                                                         30 KB
+  规则库-Clavis十二宫问事判例卷.xlsx                                                      36 KB
+  规则库-Clavis卜卦判例卷.xlsx                                                         50 KB
+  规则库-Clavis基础教义卷.xlsx                                                         57 KB
+  规则库-Clavis择时世俗卷.xlsx                                                         57 KB
+  规则库-Clavis方向法补充卷.xlsx                                                        77 KB
+  规则库-Clavis本命方向卷.xlsx                                                        125 KB
+  规则库-Clavis补遗卷.xlsx                                                           28 KB
+  规则库-Dariot卜卦总纲.xlsx                                                          35 KB
+  规则库-Dorotheus卷一.xlsx                                                         24 KB
+  规则库-Dorotheus卷三.xlsx                                                         17 KB
+  规则库-Dorotheus卷三注释.xlsx                                                       19 KB
+  规则库-Dorotheus卷二.xlsx                                                         27 KB
+  规则库-Gadbury偷窃失物.xlsx                                                         23 KB
+  规则库-GreekHoroscopeL497.xlsx                                                  16 KB
+  规则库-Griffin盗窃卜卦.xlsx                                                         39 KB
+  规则库-IbnEzra120.xlsx                                                          32 KB
+  规则库-Kepler相位和谐论.xlsx                                                         15 KB
+  规则库-Lilly卡丹诺箴言选编.xlsx                                                        51 KB
+  规则库-Lilly基础教程卷.xlsx                                                          26 KB
+  规则库-Lilly星座释义卷.xlsx                                                          35 KB
+  规则库-Lilly相位状态卷.xlsx                                                          22 KB
+  规则库-Lilly行星释义卷.xlsx                                                          50 KB
+  规则库-Lilly附录BC书目档案.xlsx                                                       14 KB
+  规则库-MashallahEclipses.xlsx                                                   22 KB
+  规则库-MashallahReception.xlsx                                                  14 KB
+  规则库-MorinCabal12宫.xlsx                                                       24 KB
+  规则库-Neve卜卦手稿背景档案.xlsx                                                        16 KB
+  规则库-Palchus海船判例.xlsx                                                         14 KB
+  规则库-PtolemyCentiloquium.xlsx                                                 41 KB
+  规则库-Schoener尊贵分数.xlsx                                                        19 KB
+  规则库-Sibly历史星图验证集.xlsx                                                        10 KB
+  规则库-Tetrabiblos世俗卷(BookII).xlsx                                              23 KB
+  规则库-Tetrabiblos本命卷(BookIII).xlsx                                             34 KB
+  规则库-Tetrabiblos本命基础卷(BookI).xlsx                                             33 KB
+  规则库-Tetrabiblos财官婚旅卷(BookIV).xlsx                                            28 KB
+  规则库-Valens判例集.xlsx                                                           26 KB
+  规则库-Valens宫位传递卷.xlsx                                                         39 KB
+  规则库-Valens寿命时主卷.xlsx                                                         46 KB
+  规则库-Valens推运卷.xlsx                                                           28 KB
+  规则库-Valens本命判断卷.xlsx                                                         24 KB
+  规则库-Valens本命总论卷.xlsx                                                         53 KB
+  规则库-推运体系.xlsx                                                                22 KB
+  规则库-索引总表.xlsx                                                                16 KB
+== 根目录 JSON (1) ==
+  firdaria.json                                        1 KB | dict keys: name, description, source, note_versions, years, cycle_length_years, sequences, day_night_rule, subperiod_rule, interpretation_note
+== rules/ JSON (4) ==
+  essential_dignity_weights.json                       0 KB | dict keys: name, system, weights, notes, version_warning
+  hyleg_alcocoden.json                                 3 KB | dict keys: name, core_fact, office_terms, candidate_sequences, implementation_warning
+  planetary_conditions.json                            1 KB | dict keys: name, essential_vs_accidental, sun_relation_thresholds, notes, version_warning
+  profections.json                                     1 KB | dict keys: name, origin, formula, mapping, lord_of_year, usage, sources
